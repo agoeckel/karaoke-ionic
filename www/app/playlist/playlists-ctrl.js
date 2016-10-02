@@ -1,12 +1,19 @@
-karaoke.controller('PlaylistsCtrl', ['karaokeApi', function(karaokeApi) {
+karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) {
+  $http.get(rootUrl)
+    .success(function(response){
 
-  // function PlaylistsCtrl() {
-    var vm = this;
+    $scope.playlists = response;
 
-    karaokeApi.getUsers(function(data){
-      vm.playlist = data;
     });
 
+    $scope.playlistParty
 
-    console.log(users.playlist);
+    // $scope.createParty = function(){
+
+    //   $http.post(
+    //       //rootUrl + "/playlists",
+    //       //{title: $scope.playlistCreate}
+    //     )
+    // }
+
 }]);

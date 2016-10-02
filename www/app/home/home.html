@@ -1,4 +1,4 @@
-<ion-view ng-controller="PlaylistsCtrl as vm">
+<ion-view>
   <ion-content class="content has-header">
      <ion-item>
        <ion-label floating>Search for a song</ion-label>
@@ -8,11 +8,10 @@
      <h3>My Playlist</h3>
 
         <div class="list">
-          <a class="item card " ng-repeat="user in vm.playlist">
-            <p>{{user.artist}}</p>
-            {{user.title}}
-
-          </a>
+          <div class="item card" ng-repeat="playlist in playlists">
+            {{playlist.name}}
+            <p>{{playlist.email}}</p>
+          </div>
         </div>
 
   </ion-content>

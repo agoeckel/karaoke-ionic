@@ -1,16 +1,21 @@
 <ion-view>
   <ion-content class="content has-header padding">
-    <form>
+<!--       <div class="list">
+        <label class="item item-input">
+          <input ng-model="playlistParty" placeholder="Join by a party ID">
+        </label>
+          <button class="button button-calm button-block">Join</button> -->
+
       <div class="list">
         <label class="item item-input">
-          <input type="email" placeholder="Join by a party ID">
+          <input ng-model="playlistCreate" placeholder="Create New Party">
         </label>
-          <button class="button button-calm button-block">Join</button>
-        <label class="item item-input">
-          <input type="password" placeholder="Create New Party">
-        </label>
+          <button ng-click="createParty()" class="button button-calm button-block">Create</button>
       </div>
-      <button class="button button-calm button-block">Create</button>
-    </form>
-  <ion-content>
-<ion-view>
+
+
+
+      <!-- </div> -->
+  </ion-content>
+</ion-view>
+
