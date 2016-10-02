@@ -1,15 +1,12 @@
-(function (){
-      'use strict';
+karaoke.controller('PlaylistsCtrl', ['karaokeApi', function(karaokeApi) {
 
-      angular.module('karaokeApp').controller('PlaylistsCtrl', ['karaokeApi', PlaylistsCtrl]);
+  // function PlaylistsCtrl() {
+    var vm = this;
 
-      function PlaylistsCtrl(karaokeApi) {
-        var vm = this;
+    karaokeApi.getUsers(function(data){
+      vm.playlist = data;
+    });
 
-        var users = karaokeApi.getUsers();
-        var playlistSongs = karaokeApi.getPlaylistSongs();
 
-        console.log(users, playlistSongs);
-
-      }
-})
+    console.log(users.playlist);
+}]);

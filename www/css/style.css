@@ -1,1 +1,25 @@
 /* Empty. Add your own CSS if you like */
+
+h3 {
+  color: #424242;
+  text-align: center;
+}
+
+.button {
+  margin: auto;
+  max-width: 40%;
+}
+
+.title {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+ .content {
+  height: 100%;
+  background-color: #BDBDBD;
+}
+
+.card {
+  padding: 8px;
+  margin: 8px;
+}

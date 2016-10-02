@@ -1,4 +1,6 @@
-angular.module('karaokeApp', ['ionic'])
+
+var rootUrl = "https://www.karaoke-rollette.herokuapp.com"
+var karaoke = angular.module('karaokeApp', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -26,6 +28,11 @@ angular.module('karaokeApp', ['ionic'])
       templateUrl: "app/home/home.html"
     })
 
+    .state('login', {
+      url: "/login",
+      templateUrl: "app/login/login.html"
+    })
+
     .state('app', {
       url: "/playlist",
       templateUrl: "app/playlist/playlist.html"
@@ -36,5 +43,6 @@ angular.module('karaokeApp', ['ionic'])
       templateUrl: "app/game/game.html"
     });
 
-  $urlRouterProvider.otherwise("/home")
+  $urlRouterProvider.otherwise("/login")
 });
+
