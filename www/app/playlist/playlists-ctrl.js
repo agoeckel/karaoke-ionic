@@ -8,12 +8,12 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
 
     $scope.playlistParty
 
-    // $scope.createParty = function(){
+    $scope.createParty = function(){
 
-    //   $http.post(
-    //       //rootUrl + "/playlists",
-    //       //{title: $scope.playlistCreate}
-    //     )
-    // }
+      $http.post(
+          //rootUrl + "/playlists",
+          //{title: $scope.playlistCreate}
+        )
+    }
 
 }]);
