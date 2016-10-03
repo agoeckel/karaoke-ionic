@@ -8,7 +8,7 @@ function setHeader() {
   };
 };
 
-karaoke.controller('UserCtrl', ['$http', '$scope', '$state', function($http, $scope, $state) {
+karaoke.controller('UserCtrl', ['$http', '$scope', '$state', 'ngFB', function($http, $scope, $state, ngFB) {
 
   function storeSession(response, setUser) {
     window.sessionStorage.token = response.headers('access-token');
@@ -19,33 +19,26 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', function($http, $sc
     window.sessionStorage.user_id = setUser.id;
   };
 
-  $scope.login = function() {
-    $http.post(
-        rootUrl + "/users",
-        {username: $scope.username, password: $scope.password}
-      )
-        .success(function(response) {
-          storeSession(response, response.data.data);
-          $state.go('tabs.home');
-        })
-      .error(function(error){
-        $state.go('tabs.home');
-    })
-  };
-
-  $scope.register = function() {
-    if($scope.password === $scope.passwordConfirm) {
-      register = JSON.stringify({username: $scope.username, password: $scope.password});
-      $http.post(rootUrl + '/register', register);
-      $state.go('tabs.home');
-    } else {
-      $scope.password = "";
-      $scope.passwordConfirm = "";
-      showAlert("Passwords did not match.");
+  $scope.fbLogin = function () {
+    ngFB.login({scope: 'email'}).then(
+      function(response) {
+        if (response.status === 'connected') {
+            console.log('Facebook login succeeded');
+            $scope.closeLogin();
+        } else {
+            console.log("failed")
+            alert('Facebook login failed');
+        }
+      });
     };
-  };
 
-  $scope.logout = function() {
-    window.sessionStorage.clear();
-  };
+    $scope.logout = function() {
+      FB.getLoginStatus(function(response) {
+        if (response.authResponse) {
+          return FB.logout();
+        }
+      });
+      window.sessionStorage.clear();
+    };
+
 }]);
