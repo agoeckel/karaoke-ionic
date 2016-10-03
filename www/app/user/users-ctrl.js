@@ -8,8 +8,6 @@ function setHeader() {
   };
 };
 
-
-
 karaoke.controller('UserCtrl', ['$http', '$scope', '$state', function($http, $scope, $state) {
 
   function storeSession(response, setUser) {
@@ -22,7 +20,6 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', function($http, $sc
   };
 
   $scope.login = function() {
-
     $http.post(
         rootUrl + "/users",
         {username: $scope.username, password: $scope.password}

@@ -5,12 +5,12 @@
       <input type="search" placeholder="Search Song">
     </label>
     <h3>My Playlist</h3>
-      <div class="list">
-        <div class="item card" ng-repeat="playlist in playlists">
-          {{playlist.artist}}
-          <p>{{playlist.title}}</p>
-        </div>
+    <div class="list">
+      <div class="item card" ng-repeat="playlist in playlists">
+        <h3>{{playlist.artist}}</h3>
+        <p>{{playlist.title}}</p>
       </div>
+    </div>
   </ion-content>
 </ion-view>
 

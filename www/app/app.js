@@ -71,8 +71,5 @@ var karaoke = angular.module('karaokeApp', ['ionic'])
 
 .config(function($ionicConfigProvider) {
   $ionicConfigProvider.tabs.position('bottom');
-
-  // note that you can also chain configs
-  $ionicConfigProvider.backButton.text('Go Back').icon('ion-chevron-left');
 });
 
