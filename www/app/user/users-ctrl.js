@@ -29,10 +29,10 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', function($http, $sc
       )
         .success(function(response) {
           storeSession(response, response.data.data);
-          $state.go('home');
+          $state.go('tabs.home');
         })
       .error(function(error){
-        $state.go('game');
+        $state.go('tabs.home');
     })
   };
 
@@ -40,7 +40,7 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', function($http, $sc
     if($scope.password === $scope.passwordConfirm) {
       register = JSON.stringify({username: $scope.username, password: $scope.password});
       $http.post(rootUrl + '/register', register);
-      $state.go('home');
+      $state.go('tabs.home');
     } else {
       $scope.password = "";
       $scope.passwordConfirm = "";

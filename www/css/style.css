@@ -5,6 +5,10 @@ h1, h3, .title {
   text-align: center;
 }
 
+.list-inset {
+  width: 90%;
+}
+
 .list {
   max-width: 500px;
   margin: auto;
