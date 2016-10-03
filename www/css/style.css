@@ -5,6 +5,29 @@ h3 {
   text-align: center;
 }
 
+.list {
+  max-width: 500px;
+  margin: auto;
+}
+
+.register {
+  margin: auto;
+  max-width: 500px;
+  padding: 10px;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  text-align: center;
+}
+
+.register:select {
+  background-color: white;
+}
+
+a {
+  text-decoration: none;
+  color: #212121;
+}
+
 .button {
   margin: auto;
   max-width: 40%;
