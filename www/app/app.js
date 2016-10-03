@@ -23,9 +23,9 @@ var karaoke = angular.module('karaokeApp', ['ionic'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('home', {
-      url: "/home",
-      templateUrl: "app/home/home.html"
+    .state('register', {
+      url: '/register',
+      templateUrl: 'app/user/register.html'
     })
 
     .state('login', {
@@ -33,16 +33,43 @@ var karaoke = angular.module('karaokeApp', ['ionic'])
       templateUrl: "app/login/login.html"
     })
 
-    .state('app', {
-      url: "/playlist",
-      templateUrl: "app/playlist/playlist.html"
+    .state('tabs', {
+      url: '/tab',
+      abstract: true,
+      templateUrl: 'app/nav/nav.html'
     })
 
-    .state('game', {
+    .state('tabs.home', {
+      url: "/home",
+      views: {
+        'home-tab': {
+          templateUrl: 'app/home/home.html'
+        }
+      }
+    })
+
+    .state('tabs.app', {
+      url: "/playlist",
+      views: {
+        'join-tab': {
+          templateUrl: 'app/playlist/playlist.html'
+        }
+      }
+    })
+
+    .state('tabs.game', {
       url: "/game",
-      templateUrl: "app/game/game.html"
+      views: {
+        'game-tab': {
+          templateUrl: 'app/game/game.html'
+        }
+      }
     });
 
   $urlRouterProvider.otherwise("/login")
+})
+
+.config(function($ionicConfigProvider) {
+  $ionicConfigProvider.tabs.position('bottom');
 });
 
