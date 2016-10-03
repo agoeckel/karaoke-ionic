@@ -11,7 +11,6 @@ function setHeader() {
 
 
 karaoke.controller('UserCtrl', ['$http', '$scope', '$state', function($http, $scope, $state) {
-  $scope.data = {}
 
   function storeSession(response, setUser) {
     window.sessionStorage.token = response.headers('access-token');
@@ -26,7 +25,7 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', function($http, $sc
 
     $http.post(
         rootUrl + "/users",
-        {username: $scope.data.username, password: $scope.data.password}
+        {username: $scope.username, password: $scope.password}
       )
         .success(function(response) {
           storeSession(response, response.data.data);

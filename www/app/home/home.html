@@ -1,19 +1,16 @@
 <ion-view>
   <ion-content class="content has-header">
-     <ion-item>
-       <ion-label floating>Search for a song</ion-label>
-       <ion-textarea></ion-textarea>
-     </ion-item>
-
-     <h3>My Playlist</h3>
-
-        <div class="list">
-          <div class="item card" ng-repeat="playlist in playlists">
-            {{playlist.name}}
-            <p>{{playlist.email}}</p>
-          </div>
+    <label class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="search" placeholder="Search Song">
+    </label>
+    <h3>My Playlist</h3>
+      <div class="list">
+        <div class="item card" ng-repeat="playlist in playlists">
+          {{playlist.name}}
+          <p>{{playlist.email}}</p>
         </div>
-
+      </div>
   </ion-content>
 </ion-view>
 
