@@ -8,6 +8,15 @@ h1, h3, .title {
 #login-btn {
   margin-top: 300px;
 
+/*.popup-buttons {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+*/
+.popup-buttons .button {
+  background-color: #26C6DA;
+  width: 200px;
 }
 
 .list-inset {
@@ -46,8 +55,9 @@ a {
 }
 
 .button {
+
   margin: auto;
-  max-width: 50%;
+  max-width: 40%;
 }
 
 .title {
