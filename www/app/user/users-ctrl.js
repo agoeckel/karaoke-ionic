@@ -8,7 +8,7 @@ function setHeader() {
   };
 };
 
-karaoke.controller('UserCtrl', ['$http', '$scope', '$state', 'ngFB', function($http, $scope, $state, ngFB) {
+karaoke.controller('UserCtrl', ['$http', '$scope', '$state', function($http, $scope, $state, $cordovaOauth, $location, $localStorage, $ngCordovaFacebook) {
 
   function storeSession(response, setUser) {
     window.sessionStorage.token = response.headers('access-token');
@@ -19,26 +19,14 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', 'ngFB', function($h
     window.sessionStorage.user_id = setUser.id;
   };
 
-  $scope.fbLogin = function () {
-    ngFB.login({scope: 'email'}).then(
-      function(response) {
-        if (response.status === 'connected') {
-            console.log('Facebook login succeeded');
-            $scope.closeLogin();
-        } else {
-            console.log("failed")
-            alert('Facebook login failed');
-        }
+ $scope.login = function() {
+      $cordovaOauth.facebook("1602849213349267", ["email"]).then(function(result) {
+          $localStorage.accessToken = result.access_token;
+          $location.path("/home");
+      }, function(error) {
+          alert("There was a problem signing in!  See the console for logs");
+          console.log(error);
       });
-    };
-
-    $scope.logout = function() {
-      FB.getLoginStatus(function(response) {
-        if (response.authResponse) {
-          return FB.logout();
-        }
-      });
-      window.sessionStorage.clear();
     };
 
 }]);

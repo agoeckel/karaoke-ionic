@@ -1,10 +1,10 @@
 
 var rootUrl = "https://karaoke-rollette.herokuapp.com"
 //var rootUrl = "http://localhost:8100"
-var karaoke = angular.module('karaokeApp', ['ionic', 'ngOpenFB'])
+var karaoke = angular.module('karaokeApp', ['ionic', 'ngCordova'])
 
-.run(function($ionicPlatform, ngFB) {
-  ngFB.init({appId: '1602849213349267'});
+.run(function($ionicPlatform) {
+  // ngFB.init({appId: '1602849213349267'});
 
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
