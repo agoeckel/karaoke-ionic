@@ -8,7 +8,7 @@ function setHeader() {
   };
 };
 
-karaoke.controller('UserCtrl', ['$http', '$scope', '$state', 'ngFB', function($http, $scope, $state, ngFB) {
+karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$auth', function($http, $scope, $state, $auth) {
 
   function storeSession(response, setUser) {
     window.sessionStorage.token = response.headers('access-token');
@@ -19,26 +19,39 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', 'ngFB', function($h
     window.sessionStorage.user_id = setUser.id;
   };
 
-  $scope.fbLogin = function () {
-    ngFB.login({scope: 'email'}).then(
-      function(response) {
-        if (response.status === 'connected') {
-            console.log('Facebook login succeeded');
-            $scope.closeLogin();
-        } else {
-            console.log("failed")
-            alert('Facebook login failed');
-        }
-      });
+  $scope.signup = function () {
+    $auth
+      .signup({email: $scope.email, password: $scope.password})
+      .then(function(response){
+        $auth.setToken(response);
+        $state.go('home')
+      })
+      .catch(function(response){
+        alert("Invalid Login");
+      })
     };
 
-    $scope.logout = function() {
-      FB.getLoginStatus(function(response) {
-        if (response.authResponse) {
-          return FB.logout();
-        }
-      });
-      window.sessionStorage.clear();
+    $scope.login = function() {
+      console.log("login")
+      $auth
+      .login({email: $scope.email, password: $scope.password})
+      .then(function (response) {
+        $auth.setToken(response);
+        $state.go('home');
+      })
+      .catch(function (response) {
+        alert("Invalid Login")
+      })
     };
 
+  $scope.auth = function (provider) {
+  $auth.authenticate(provider)
+    .then(function (response) {
+      console.debug("success", response);
+      $state.go('home');
+    })
+    .catch(function (response) {
+      console.debug("catch", response);
+    })
+  }
 }]);
