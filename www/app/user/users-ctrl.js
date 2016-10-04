@@ -1,11 +1,11 @@
-function setHeader() {
-  return {
+setHeader = {
+  "header": {
     "access-token": window.sessionStorage.token,
     "token-type": "Bearer",
     "client": window.sessionStorage.client,
     "expiry": window.sessionStorage.expiry,
     "uid": window.sessionStorage.uid
-  };
+  }
 };
 
 karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$auth', function($http, $scope, $state, $auth) {
@@ -44,14 +44,14 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$auth', function($
       })
     };
 
-  $scope.auth = function (provider) {
-  $auth.authenticate(provider)
-    .then(function (response) {
-      console.debug("success", response);
-      $state.go('home');
-    })
-    .catch(function (response) {
-      console.debug("catch", response);
-    })
-  }
+  // $scope.auth = function (provider) {
+  // $auth.authenticate(provider)
+  //   .then(function (response) {
+  //     console.debug("success", response);
+  //     $state.go('home');
+  //   })
+  //   .catch(function (response) {
+  //     console.debug("catch", response);
+  //   })
+  // }
 }]);

@@ -1,21 +1,21 @@
 
 var rootUrl = "https://karaoke-rollette.herokuapp.com"
-//var rootUrl = "http://localhost:8100"
+var Url = "http://localhost:8100"
 var karaoke = angular.module('karaokeApp', ['ionic', 'ngOpenFB', 'satellizer'])
 
 .run(function($ionicPlatform, ngFB, $rootScope, $state, $auth) {
   // ngFB.init({appId: '1602849213349267'});
 
-  $rootScope.$on('$stateChangeStart',
-    function (event, toState) {
-      var requiredLogin = false;
-      if (toState.data && toState.data.requiredLogin)
-        requiredLogin = true;
-      if (requiredLogin && !$auth.isAuthenticated()) {
-        event.preventDefault();
-        $state.go('login');
-      }
-    });
+  // $rootScope.$on('$stateChangeStart',
+  //   function (event, toState) {
+  //     var requiredLogin = false;
+  //     if (toState.data && toState.data.requiredLogin)
+  //       requiredLogin = true;
+  //     if (requiredLogin && !$auth.isAuthenticated()) {
+  //       event.preventDefault();
+  //       $state.go('login');
+  //     }
+  //   });
 
 
   $ionicPlatform.ready(function() {
@@ -84,12 +84,16 @@ var karaoke = angular.module('karaokeApp', ['ionic', 'ngOpenFB', 'satellizer'])
   $urlRouterProvider.otherwise("/login")
 
   $authProvider.facebook({
+    name: 'facebook',
+    url: '/auth/facebook',
     clientId: '1602849213349267',
-    // by default, the redirect URI is http://localhost:5000
-    redirectUri: rootUrl + '/auth/facebook/callback'
+    redirectUri: window.location.origin + '/#/register',
+    authorizationEndpoint: rootUrl + '/auth/facebook',
+    platform: 'mobile',
+    responseType: 'token',
+    scope: ['email']
   });
 })
-
 .config(function($ionicConfigProvider) {
   $ionicConfigProvider.tabs.position('bottom');
 });
