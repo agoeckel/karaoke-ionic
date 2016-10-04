@@ -2,7 +2,7 @@ karaoke.factory('authentication', ['$http', function($http) {
   return {
     authenticate: function(username, password) {
       return $http.post(
-        rootUrl + "/auth/login",
+        rootUrl + "/api/auth/sign_in",
         JSON.stringify({email: username, password: password})
       );
     }
@@ -48,15 +48,25 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
   }
 
   $scope.login = function() {
-    console.log("Username: " + $scope.user.username)
-    console.log($scope.user)
+    if($scope.user.username && $scope.user.password) {
+      authentication.authenticate($scope.user.username, $scope.user.password)
+        .then(function(response) {
+          storeSession(response, response.data.data);
+          $state.go('home');
+        })
+        .catch(function(data) {
+          showAlert(data.data.errors[0]);
+        });
+    }
+    else {
+      showAlert("Invalid Login");
+    }
   };
-
   $scope.register = function() {
     console.log($scope)
-    if($scope.password === $scope.passwordConfirm) {
+    if($scope.user.password === $scope.user.passwordConfirm) {
       register = JSON.stringify($scope.user);
-      $http.post(rootUrl + '/auth', register);
+      $http.post(rootUrl + '/api/auth', register);
       $state.go('tabs.home');
     } else {
       $scope.password = "";
