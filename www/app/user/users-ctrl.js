@@ -1,3 +1,14 @@
+karaoke.factory('authentication', ['$http', function($http) {
+  return {
+    authenticate: function(username, password) {
+      return $http.post(
+        rootUrl + "/auth/login",
+        JSON.stringify({email: username, password: password})
+      );
+    }
+  };
+}]);
+
 function setHeader() {
   return {
     "access-token": window.sessionStorage.token,
@@ -8,35 +19,44 @@ function setHeader() {
   };
 };
 
-karaoke.controller('UserCtrl', ['$http', '$scope', '$state', function($http, $scope, $state) {
+karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', function($http, $scope, $state, $ionicPopup) {
+  $scope.user = {
+    username: "",
+    password: "",
+    passwordConfirm: "",
+    email: ""
+  };
+
+  console.log($scope.user);
+
+  showAlert = function(alert) {
+    var alertPopup = $ionicPopup.alert({
+      title: alert,
+      cssClass: 'popupstyle'
+    });
+  };
 
   function storeSession(response, setUser) {
     window.sessionStorage.token = response.headers('access-token');
     window.sessionStorage.client = response.headers('client');
     window.sessionStorage.expiry = response.headers('expiry');
     window.sessionStorage.uid = response.headers('uid');
-    window.sessionStorage.username = setUser.username;
-    window.sessionStorage.user_id = setUser.id;
   };
 
+  $scope.regpage = function(){
+    $state.go("register")
+  }
+
   $scope.login = function() {
-    $http.post(
-        rootUrl + "/users",
-        {username: $scope.username, password: $scope.password}
-      )
-        .success(function(response) {
-          storeSession(response, response.data.data);
-          $state.go('tabs.home');
-        })
-      .error(function(error){
-        $state.go('tabs.home');
-    })
+    console.log("Username: " + $scope.user.username)
+    console.log($scope.user)
   };
 
   $scope.register = function() {
+    console.log($scope)
     if($scope.password === $scope.passwordConfirm) {
-      register = JSON.stringify({username: $scope.username, password: $scope.password});
-      $http.post(rootUrl + '/register', register);
+      register = JSON.stringify($scope.user);
+      $http.post(rootUrl + '/auth', register);
       $state.go('tabs.home');
     } else {
       $scope.password = "";
