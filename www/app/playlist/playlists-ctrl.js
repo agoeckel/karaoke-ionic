@@ -14,12 +14,10 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
     $scope.playlistParty
     // $scope.user
 
-
-    // $scope.createParty = function(){
-
-    //   $http.post(
-    //       rootUrl + "/playlists",
-    //       {title: $scope.playlistCreate}
-    //     )
-    // }
+    $scope.createParty = function(){
+      $http.post(
+        rootUrl + "/playlists",
+        {artist: $scope.artist, title: $scope.title}
+      )
+    }
 }]);

@@ -1,14 +1,14 @@
-function setHeader() {
-  return {
+setHeader = {
+  "header": {
     "access-token": window.sessionStorage.token,
     "token-type": "Bearer",
     "client": window.sessionStorage.client,
     "expiry": window.sessionStorage.expiry,
     "uid": window.sessionStorage.uid
-  };
+  }
 };
 
-karaoke.controller('UserCtrl', ['$http', '$scope', '$state', function($http, $scope, $state) {
+karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$auth', function($http, $scope, $state, $auth) {
 
   function storeSession(response, setUser) {
     window.sessionStorage.token = response.headers('access-token');
@@ -19,33 +19,39 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', function($http, $sc
     window.sessionStorage.user_id = setUser.id;
   };
 
-  $scope.login = function() {
-    $http.post(
-        rootUrl + "/users",
-        {username: $scope.username, password: $scope.password}
-      )
-        .success(function(response) {
-          storeSession(response, response.data.data);
-          $state.go('tabs.home');
-        })
-      .error(function(error){
-        $state.go('tabs.home');
-    })
-  };
-
-  $scope.register = function() {
-    if($scope.password === $scope.passwordConfirm) {
-      register = JSON.stringify({username: $scope.username, password: $scope.password});
-      $http.post(rootUrl + '/register', register);
-      $state.go('tabs.home');
-    } else {
-      $scope.password = "";
-      $scope.passwordConfirm = "";
-      showAlert("Passwords did not match.");
+  $scope.signup = function () {
+    $auth
+      .signup({email: $scope.email, password: $scope.password})
+      .then(function(response){
+        $auth.setToken(response);
+        $state.go('home')
+      })
+      .catch(function(response){
+        alert("Invalid Login");
+      })
     };
-  };
 
-  $scope.logout = function() {
-    window.sessionStorage.clear();
-  };
+    $scope.login = function() {
+      console.log("login")
+      $auth
+      .login({email: $scope.email, password: $scope.password})
+      .then(function (response) {
+        $auth.setToken(response);
+        $state.go('home');
+      })
+      .catch(function (response) {
+        alert("Invalid Login")
+      })
+    };
+
+  // $scope.auth = function (provider) {
+  // $auth.authenticate(provider)
+  //   .then(function (response) {
+  //     console.debug("success", response);
+  //     $state.go('home');
+  //   })
+  //   .catch(function (response) {
+  //     console.debug("catch", response);
+  //   })
+  // }
 }]);

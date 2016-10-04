@@ -1,8 +1,23 @@
 
 var rootUrl = "https://karaoke-rollette.herokuapp.com"
-var karaoke = angular.module('karaokeApp', ['ionic'])
+var Url = "http://localhost:8100"
+var karaoke = angular.module('karaokeApp', ['ionic', 'ngOpenFB', 'satellizer'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, ngFB, $rootScope, $state, $auth) {
+  // ngFB.init({appId: '1602849213349267'});
+
+  // $rootScope.$on('$stateChangeStart',
+  //   function (event, toState) {
+  //     var requiredLogin = false;
+  //     if (toState.data && toState.data.requiredLogin)
+  //       requiredLogin = true;
+  //     if (requiredLogin && !$auth.isAuthenticated()) {
+  //       event.preventDefault();
+  //       $state.go('login');
+  //     }
+  //   });
+
+
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -20,7 +35,7 @@ var karaoke = angular.module('karaokeApp', ['ionic'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $authProvider) {
   $stateProvider
 
     .state('register', {
@@ -67,9 +82,21 @@ var karaoke = angular.module('karaokeApp', ['ionic'])
     });
 
   $urlRouterProvider.otherwise("/login")
-})
 
+  $authProvider.facebook({
+    name: 'facebook',
+    url: '/auth/facebook',
+    clientId: '1602849213349267',
+    redirectUri: window.location.origin + '/#/register',
+    authorizationEndpoint: rootUrl + '/auth/facebook',
+    platform: 'mobile',
+    responseType: 'token',
+    scope: ['email']
+  });
+})
 .config(function($ionicConfigProvider) {
   $ionicConfigProvider.tabs.position('bottom');
 });
+
+
 
