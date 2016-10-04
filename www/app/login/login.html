@@ -1,9 +1,9 @@
-<ion-view class="login-container" ng-controller="UserCtrl">
+<ion-view ng-init="logout()" class="login-container" ng-controller="UserCtrl">
   <ion-content class="content login">
     <form class="login-form-container list">
       <ion-item>
-        <ion-label class="icon ion-person icon-right" color="primary" stacked>   Username</ion-label>
-        <input id="username" type="text" ng-model="user.username" placeholder="Username">
+        <ion-label class="icon ion-person icon-right" color="primary" stacked>   Email</ion-label>
+        <input id="email" type="email" ng-model="user.email" placeholder="Email">
       </ion-item>
       <ion-item>
         <ion-label class="icon ion-lock-combination icon-right" color="primary" stacked>  Password</ion-label>

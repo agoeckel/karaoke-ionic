@@ -1,10 +1,10 @@
-$.ajax({
-  url: rootUrl,
-  method: 'GET'
-})
-.done(function(response) {
-  userPlaylistSongs = response
-});
+// $.ajax({
+//   url: rootUrl,
+//   method: 'GET'
+// })
+// .done(function(response) {
+//   userPlaylistSongs = response
+// });
 
 function playlistShuffle(){
   index = Math.floor(Math.random() * userPlaylistSongs.length + 1)
