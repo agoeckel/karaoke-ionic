@@ -1,7 +1,7 @@
 karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) {
 
   $scope.playlist = function(){
-    $http.get(rootUrl + "/playlists")
+    $http.get(rootUrl + "/api/playlists/:id")
       .success(function(response){
         $scope.playlists = response;
         console.log()

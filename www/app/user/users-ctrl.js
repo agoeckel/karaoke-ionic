@@ -1,14 +1,3 @@
-karaoke.factory('authentication', ['$http', function($http) {
-  return {
-    authenticate: function(username, password) {
-      return $http.post(
-        rootUrl + "/api/auth/sign_in",
-        JSON.stringify({email: username, password: password})
-      );
-    }
-  };
-}]);
-
 function setHeader() {
   return {
     "access-token": window.sessionStorage.token,
@@ -21,10 +10,10 @@ function setHeader() {
 
 karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', function($http, $scope, $state, $ionicPopup) {
   $scope.user = {
-    username: "",
+    name: "",
+    email: "",
     password: "",
-    passwordConfirm: "",
-    email: ""
+    password_confirmation: ""
   };
 
   console.log($scope.user);
@@ -48,8 +37,10 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
   }
 
   $scope.login = function() {
-    if($scope.user.username && $scope.user.password) {
-      authentication.authenticate($scope.user.username, $scope.user.password)
+    if($scope.user.email && $scope.user.password) {
+        login = {email: $scope.user.email, password:$scope.user.password};
+        console.log(login)
+        $http.post(rootUrl + "/v1/auth/sign_in", login)
         .then(function(response) {
           storeSession(response, response.data.data);
           $state.go('home');
@@ -57,20 +48,26 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
         .catch(function(data) {
           showAlert(data.data.errors[0]);
         });
-    }
-    else {
+    } else {
       showAlert("Invalid Login");
     }
   };
+
   $scope.register = function() {
-    console.log($scope)
-    if($scope.user.password === $scope.user.passwordConfirm) {
+    console.log($scope.user)
+    if($scope.user.password === $scope.user.password_confirmation) {
       register = JSON.stringify($scope.user);
-      $http.post(rootUrl + '/api/auth', register);
+      $http.post(rootUrl + '/v1/auth', register)
+    .then(function(response) {
+      storeSession(response, response.data.data);
       $state.go('tabs.home');
+    })
+    .catch(function(data) {
+      showAlert(data.data.errors[0]);
+    })
     } else {
       $scope.password = "";
-      $scope.passwordConfirm = "";
+      $scope.password_confirmation = "";
       showAlert("Passwords did not match.");
     };
   };
