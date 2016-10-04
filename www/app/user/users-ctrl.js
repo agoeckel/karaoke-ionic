@@ -4,7 +4,8 @@ function setHeader() {
     "token-type": "Bearer",
     "client": window.sessionStorage.client,
     "expiry": window.sessionStorage.expiry,
-    "uid": window.sessionStorage.uid
+    "uid": window.sessionStorage.uid,
+    "id": window.sessionStorage.id
   };
 };
 
@@ -25,10 +26,11 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
     });
   };
 
-  function storeSession(response, setUser) {
+  function storeSession(response) {
     window.sessionStorage.token = response.headers('access-token');
     window.sessionStorage.client = response.headers('client');
     window.sessionStorage.expiry = response.headers('expiry');
+    window.sessionStorage.id = response.headers('id');
     window.sessionStorage.uid = response.headers('uid');
   };
 
@@ -43,7 +45,7 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
         $http.post(rootUrl + "/v1/auth/sign_in", login)
         .then(function(response) {
           storeSession(response, response.data.data);
-          $state.go('home');
+          $state.go('tabs.home');
         })
         .catch(function(data) {
           showAlert(data.data.errors[0]);
@@ -74,5 +76,6 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
 
   $scope.logout = function() {
     window.sessionStorage.clear();
+    $state.go('login')
   };
 }]);

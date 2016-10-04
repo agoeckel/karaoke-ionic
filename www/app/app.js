@@ -28,6 +28,11 @@ var karaoke = angular.module('karaokeApp', ['ionic'])
       templateUrl: 'app/user/register.html'
     })
 
+    .state('logout', {
+      url: '/logout',
+      templateUrl: 'app/login/login.html'
+    })
+
     .state('login', {
       url: "/login",
       templateUrl: "app/login/login.html"
