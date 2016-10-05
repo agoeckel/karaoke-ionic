@@ -1,3 +1,4 @@
+
 karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) {
 
   function setHeader() {
@@ -13,16 +14,12 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
 
 
   $scope.playlist = function(){
-    console.log("hello")
     $http.get(rootUrl + "/api/playlists", {headers: setHeader()})
       .success(function(response){
+        console.log(response)
         $scope.playlists = response.songs;
-    }).fail(function(){
-      showAlert("fail")
     })
   }
-
-
 
   // $http.get(rootUrl + $scope.playlists.id + '/playlists' + $scope.playlists.id)
   //   .success(function(response){
@@ -32,12 +29,24 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
     $scope.playlistParty
     // $scope.user
 
+  $scope.spotify = function() {
+    song = $scope.spotify.searchedSong
+    $http.get(rootUrl + '/api/artists', {
+      headers: setHeader(),
+      params: {track_name: song}
+    })
+      .success(function(response){
+        $scope.songs = response
+        console.log(response)
+      })
+  }
 
-    // $scope.createParty = function(){
+  $scope.songInfo = function(){
+    console.log("this is a song")
+  }
 
-    //   $http.post(
-    //       rootUrl + "/playlists",
-    //       {title: $scope.playlistCreate}
-    //     )
-    // }
+  $scope.$on("$ionicView.beforeEnter", function(){
+    console.log("do it")
+    $scope.playlist();
+  })
 }]);

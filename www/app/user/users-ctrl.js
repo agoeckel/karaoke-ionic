@@ -17,8 +17,6 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
     password_confirmation: ""
   };
 
-  console.log($scope.user);
-
   showAlert = function(alert) {
     var alertPopup = $ionicPopup.alert({
       title: alert,
@@ -41,7 +39,6 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
   $scope.login = function() {
     if($scope.user.email && $scope.user.password) {
         login = {email: $scope.user.email, password:$scope.user.password};
-        console.log(login)
         $http.post(rootUrl + "/v1/auth/sign_in", login)
         .then(function(response) {
           storeSession(response, response.data.data);
@@ -56,7 +53,6 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
   };
 
   $scope.register = function() {
-    console.log($scope.user)
     if($scope.user.password === $scope.user.password_confirmation) {
       register = JSON.stringify($scope.user);
       $http.post(rootUrl + '/v1/auth', register)
