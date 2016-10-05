@@ -21,22 +21,17 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state', function($scop
     })
   }
 
-<<<<<<< HEAD
-  // $http.get(rootUrl + $scope.playlists.id + '/playlists' + $scope.playlists.id)
-  //   .success(function(response){
-  //     $scope.userplaylist = response
-  //   })
 
-    $scope.playlistParty
-    // $scope.user
+    // $scope.playlistParty
+    // // $scope.user
 
-    $scope.createParty = function(){
-      $http.post(
-        rootUrl + "/playlists",
-        {artist: $scope.artist, title: $scope.title}
-      )
-    }
-=======
+    // $scope.createParty = function(){
+    //   $http.post(
+    //     rootUrl + "/playlists",
+    //     {artist: $scope.artist, title: $scope.title}
+    //   )
+    // }
+
   $scope.spotify = function() {
     song = $scope.spotify.searchedSong
     $http.get(rootUrl + '/api/artists', {
@@ -58,5 +53,5 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state', function($scop
     console.log("do it")
     $scope.playlist();
   })
->>>>>>> 8631944cee2d849a873eb933d4b445adbe6287ce
+
 }]);

@@ -29,15 +29,7 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', function($http, $sc
     $scope.btnClick()
     // $scope.shuffle()
   })
-
-<<<<<<< HEAD
-  // $http.post(
-
-
-  //   )
-=======
  }
->>>>>>> 8631944cee2d849a873eb933d4b445adbe6287ce
 
 
 }]);
