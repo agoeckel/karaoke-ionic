@@ -38,7 +38,7 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
 
   $scope.login = function() {
     if($scope.user.email && $scope.user.password) {
-        login = {email: $scope.user.email, password:$scope.user.password};
+        login = {email: $scope.user.email, password:$scope.user.password, name: $scope.user.name};
         $http.post(rootUrl + "/v1/auth/sign_in", login)
         .then(function(response) {
           storeSession(response, response.data.data);
