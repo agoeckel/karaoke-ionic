@@ -12,6 +12,13 @@
       </div>
     </div>
       <button ng-click="playlist()">hello</button>
+      <button ng-click="spotify()">Spotify</button>
+    <div class="list">
+      <div class="item card" ng-repeat="song in songs">
+        <p>{{song.title}}</p>
+        <button ng-click="songInfo" class="icon ion-plus-circled icon-right"></button>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
 
