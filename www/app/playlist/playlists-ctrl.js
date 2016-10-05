@@ -1,5 +1,5 @@
 
-karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) {
+karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
 
 
   function setHeader() {
@@ -35,6 +35,7 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
 
   $scope.songInfo = function(){
     console.log("this is a song")
+    // $state.go("tabs.home")
   }
 
   $scope.$on("$ionicView.beforeEnter", function(){
