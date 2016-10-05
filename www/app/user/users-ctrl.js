@@ -1,4 +1,4 @@
-function setHeader() {
+setHeader = function() {
   return {
     "access-token": window.sessionStorage.token,
     "token-type": "Bearer",
@@ -74,4 +74,5 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
     window.sessionStorage.clear();
     $state.go('login')
   };
+
 }]);

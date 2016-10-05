@@ -1,5 +1,5 @@
-
 karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', function($scope, $http, $state, $window) {
+
 
   function setHeader() {
     return {
@@ -22,14 +22,6 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
         console.log("why won't you append the song jerk")
     })
   }
-
-  // $http.get(rootUrl + $scope.playlists.id + '/playlists' + $scope.playlists.id)
-  //   .success(function(response){
-  //     $scope.userplaylist = response
-  //   })
-
-    $scope.playlistParty
-    // $scope.user
 
   $scope.spotify = function() {
     console.log("hi there");
@@ -69,7 +61,5 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
   $scope.$on("$ionicView.beforeEnter", function(){
     $scope.playlist();
   })
-
   $scope.show = false
-
 }]);

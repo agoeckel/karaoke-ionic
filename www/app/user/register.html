@@ -6,6 +6,9 @@
         <input type="text" ng-model="user.name" placeholder="Username">
       </ion-item>
       <ion-item>
+        <ion-label color="primary" stacked>Password</ion-label>
+        <input type="password" ng-model="password" placeholder="Password">
+      </ion-item>
         <ion-label class="icon ion-email icon-right" color="primary" stacked>   Email</ion-label>
         <input type="email" ng-model="user.email" placeholder="Email">
       </ion-item>
@@ -16,6 +19,7 @@
       <ion-item>
         <ion-label class="icon ion-lock-combination icon-right" color="primary" stacked>   Confirm Password</ion-label>
         <input type="password" ng-model="user.password_confirmation" placeholder="Confirm Password">
+
       </ion-item>
       <button ng-click="register()" class="button button-calm button-block">Register</button>
     </form>
