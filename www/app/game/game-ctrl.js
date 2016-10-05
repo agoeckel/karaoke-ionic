@@ -41,12 +41,14 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', function($http, $sc
     $http.post(rootUrl + '/api/parties', {}, {headers: setHeader()})
     .then(function(response){
       console.log(response)
-      angular.element('.list').append("<div class='item'>{{response}}response</div>")
+      angular.element('#party-list').append("<div class='item'>"+ response.config.url +"</div>")
     console.log("user")
     $scope.btnClick()
     // $scope.shuffle()
-  })
- }
+    })
+  }
+
+
 
 
 }]);
