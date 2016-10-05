@@ -5,6 +5,14 @@ h1, h3, .title {
   text-align: center;
 }
 
+#song-btn {
+  text-align: left;
+  margin: auto;
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+
 .popup-buttons {
   width: 100%;
   margin: auto;
