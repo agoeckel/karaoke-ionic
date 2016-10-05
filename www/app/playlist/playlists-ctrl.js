@@ -12,14 +12,11 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
     };
   };
 
-
   $scope.playlist = function(){
     $scope.show = false
     $http.get(rootUrl + "/api/playlists", {headers: setHeader()})
       .success(function(response){
-        console.log(response)
         $scope.playlists = response.songs;
-        console.log("why won't you append the song jerk")
     })
   }
 
@@ -33,13 +30,10 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
     })
       .success(function(response){
         $scope.songs = response
-        console.log(response)
       })
   }
 
   $scope.songInfo = function(){
-    console.log(this.song.album.images[0].name)
-
     var songName = this.song.name;
     var artistName = this.song.artists[0].name;
     var songImages = this.song.album.images[0].url;
@@ -49,8 +43,6 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
     if (songImages === null || songImages === undefined) { songImages = null };
 
     var songAttributes = {title: songName, artist: artistName, image_src: songImages};
-
-    console.log(setHeader())
 
     $http.post(rootUrl + "/api/songs", songAttributes, {
       headers: setHeader()
