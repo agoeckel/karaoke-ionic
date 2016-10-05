@@ -7,8 +7,14 @@ h1, h3, .title {
 
 #login-btn {
   margin-top: 300px;
+}
 
-.popup-buttons .button {
+.button {
+  background-color: #26C6DA;
+  width: 90%;
+}
+
+.popup-buttons {
   background-color: #26C6DA;
   width: 200px;
 }
@@ -43,15 +49,16 @@ input {
   background-color: white;
 }
 
+#song-btn {
+  margin: auto;
+  margin-bottom: 5px;
+  text-align: left;
+  width: 90%;
+}
+
 a {
   text-decoration: none;
   color: #212121;
-}
-
-.button {
-
-  margin: auto;
-  max-width: 40%;
 }
 
 .title {
