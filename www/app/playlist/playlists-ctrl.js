@@ -1,7 +1,6 @@
 
 karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
 
-
   function setHeader() {
     return {
       "access-token": window.sessionStorage.token,
@@ -13,7 +12,9 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state', function($scop
     };
   };
 
+
   $scope.playlist = function(){
+    $scope.show =
     $http.get(rootUrl + "/api/playlists", {headers: setHeader()})
       .success(function(response){
         console.log(response)
@@ -21,18 +22,8 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state', function($scop
     })
   }
 
-
-    // $scope.playlistParty
-    // // $scope.user
-
-    // $scope.createParty = function(){
-    //   $http.post(
-    //     rootUrl + "/playlists",
-    //     {artist: $scope.artist, title: $scope.title}
-    //   )
-    // }
-
   $scope.spotify = function() {
+    $scope.show = true
     song = $scope.spotify.searchedSong
     $http.get(rootUrl + '/api/artists', {
       headers: setHeader(),
@@ -50,8 +41,7 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state', function($scop
   }
 
   $scope.$on("$ionicView.beforeEnter", function(){
-    console.log("do it")
     $scope.playlist();
   })
-
+  $scope.show = false
 }]);
