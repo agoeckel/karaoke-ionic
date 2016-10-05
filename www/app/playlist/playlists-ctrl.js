@@ -1,13 +1,27 @@
-karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) {
+
+karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
+
+
+  function setHeader() {
+    return {
+      "access-token": window.sessionStorage.token,
+      "token-type": "Bearer",
+      "client": window.sessionStorage.client,
+      "expiry": window.sessionStorage.expiry,
+      "uid": window.sessionStorage.uid,
+      "id": window.sessionStorage.id
+    };
+  };
 
   $scope.playlist = function(){
-    $http.get(rootUrl + "/playlists")
+    $http.get(rootUrl + "/api/playlists", {headers: setHeader()})
       .success(function(response){
-        $scope.playlists = response;
-        console.log()
-    });
+        console.log(response)
+        $scope.playlists = response.songs;
+    })
   }
 
+<<<<<<< HEAD
   // $http.get(rootUrl + $scope.playlists.id + '/playlists' + $scope.playlists.id)
   //   .success(function(response){
   //     $scope.userplaylist = response
@@ -22,4 +36,27 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
         {artist: $scope.artist, title: $scope.title}
       )
     }
+=======
+  $scope.spotify = function() {
+    song = $scope.spotify.searchedSong
+    $http.get(rootUrl + '/api/artists', {
+      headers: setHeader(),
+      params: {track_name: song}
+    })
+      .success(function(response){
+        $scope.songs = response
+        console.log(response)
+      })
+  }
+
+  $scope.songInfo = function(){
+    console.log("this is a song")
+    // $state.go("tabs.home")
+  }
+
+  $scope.$on("$ionicView.beforeEnter", function(){
+    console.log("do it")
+    $scope.playlist();
+  })
+>>>>>>> 8631944cee2d849a873eb933d4b445adbe6287ce
 }]);

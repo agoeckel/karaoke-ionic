@@ -1,15 +1,23 @@
-<ion-view>
+<ion-view ng-controller="PlaylistsCtrl">
   <ion-content class="content has-header">
     <label class="item item-input">
       <i class="icon ion-search placeholder-icon"></i>
-      <input type="search" placeholder="Search Song">
+      <form ng-submit="spotify()">
+        <input ng-model="spotify.searchedSong" type="search" placeholder="Search Song">
+      </form>
     </label>
     <h3>My Playlist</h3>
     <div class="list">
       <div class="item card" ng-repeat="playlist in playlists">
-        <h3>{{playlist.artist}}</h3>
+        {{playlist.artist}}
         <p>{{playlist.title}}</p>
       </div>
+    </div>
+    <div class="list">
+      <button id="song-btn" ng-click="songInfo()" class="item card icon ion-plus-circled icon-right" ng-repeat="song in songs">
+        {{song.artists[0].name}}
+        <p>{{song.name}}</p>
+      </button>
     </div>
   </ion-content>
 </ion-view>

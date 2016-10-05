@@ -1,22 +1,43 @@
-// $.ajax({
-//   url: rootUrl,
-//   method: 'GET'
-// })
-// .done(function(response) {
-//   userPlaylistSongs = response
-// });
+karaoke.controller('GameCtrl', ['$http', '$scope', '$state', function($http, $scope, $state){
+  function setHeader() {
+  return {
+    "access-token": window.sessionStorage.token,
+    "token-type": "Bearer",
+    "client": window.sessionStorage.client,
+    "expiry": window.sessionStorage.expiry,
+    "uid": window.sessionStorage.uid,
+    "id": window.sessionStorage.id
+  };
+};
 
-// function playlistShuffle(){
-//   index = Math.floor(Math.random() * userPlaylistSongs.length + 1)
-//   return userPlaylistSongs[index]
-// }
+  $scope.IsHidden = true;
+  $scope.btnClick = function(){
+      $scope.IsHidden = $scope.IsHidden ? false : true;
+    }
 
-karaoke.controller('GameCtrl', ['$http', '$scope', function($http, $scope){
+  $scope.shuffle = function(){
+    console.log("shuffle")
+    $state.go('tabs.game', {reload: true});
+  }
 
+  $scope.user = function() {
+    $http.post(rootUrl + '/api/parties', {}, {headers: setHeader()})
+    .then(function(response){
+      console.log(response)
+      // <div class="item">response</div>
+    console.log("user")
+    $scope.btnClick()
+    // $scope.shuffle()
+  })
+
+<<<<<<< HEAD
   // $http.post(
 
 
   //   )
+=======
+ }
+>>>>>>> 8631944cee2d849a873eb933d4b445adbe6287ce
 
 
 }]);

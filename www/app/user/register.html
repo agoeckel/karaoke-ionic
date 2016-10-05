@@ -3,17 +3,12 @@
     <form class="login-form-container list">
       <ion-item>
         <ion-label class="icon ion-person icon-right" color="primary" stacked>   Username</ion-label>
-        <input type="text" ng-model="user.username" placeholder="Username">
+        <input type="text" ng-model="user.name" placeholder="Username">
       </ion-item>
       <ion-item>
-<<<<<<< HEAD
         <ion-label color="primary" stacked>Password</ion-label>
         <input type="password" ng-model="password" placeholder="Password">
       </ion-item>
-      <ion-item>
-        <ion-label color="primary" stacked>Confirm Password</ion-label>
-        <input type="password" ng-model="confirmPassword" placeholder="Confirm Password">
-=======
         <ion-label class="icon ion-email icon-right" color="primary" stacked>   Email</ion-label>
         <input type="email" ng-model="user.email" placeholder="Email">
       </ion-item>
@@ -23,8 +18,8 @@
       </ion-item>
       <ion-item>
         <ion-label class="icon ion-lock-combination icon-right" color="primary" stacked>   Confirm Password</ion-label>
-        <input type="password" ng-model="user.passwordConfirm" placeholder="Confirm Password">
->>>>>>> 09e3fcb2ec4a2e87cc0ad360fff9bff12b64fc6c
+        <input type="password" ng-model="user.password_confirmation" placeholder="Confirm Password">
+
       </ion-item>
       <button ng-click="register()" class="button button-calm button-block">Register</button>
     </form>
