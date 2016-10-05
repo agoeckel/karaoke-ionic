@@ -1,11 +1,3 @@
-// $.ajax({
-//   url: rootUrl,
-//   method: 'GET'
-// })
-// .done(function(response) {
-//   userPlaylistSongs = response
-// });
-
 function setHeader() {
     return {
       "access-token": window.sessionStorage.token,
@@ -24,6 +16,9 @@ function playlistShuffle(){
 
 karaoke.controller('GameCtrl', ['$http', '$scope', function($http, $scope){
 
-
+  $scope.IsHidden = true;
+  $scope.btnClick = function(){
+      $scope.IsHidden = $scope.IsHidden ? false : true;
+    }
 
 }]);

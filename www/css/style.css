@@ -78,3 +78,9 @@ a {
   padding: 8px;
   margin: 8px;
 }
+
+.img-container {
+  text-align: center;
+  width: 100%;
+}
+
