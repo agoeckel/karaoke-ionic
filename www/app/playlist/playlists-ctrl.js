@@ -39,18 +39,17 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
 
   $scope.songInfo = function(){
     var songName = this.song.name;
-    console.log(this.song.album.images[0].name)
     var artistName = this.song.artists[0].name;
     var songImages = this.song.album.images[0].url;
     if (songName === null || songName === undefined) { songName = null };
     if (artistName === null || artistName === undefined) { artistName = null };
     if (songImages === null || songImages === undefined) { songImages = null };
-    var songAttributes = {title: songName, artist: artistName, image_src: songImages};
+    songAttributes = {title: songName, artist: artistName, image_src: songImages};
     $http.post(rootUrl + "/api/songs", songAttributes, {
       headers: setHeader()
     })
     .then(function(response){
-
+      console.log(response)
     })
     .catch(function(data) {
       // showAlert(data.data.errors[0])
