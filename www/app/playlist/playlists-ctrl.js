@@ -1,5 +1,5 @@
 
-karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) {
+karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', function($scope, $http, $state, $window) {
 
   function setHeader() {
     return {
@@ -14,11 +14,12 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
 
 
   $scope.playlist = function(){
-    $scope.show =
+    $scope.show = false
     $http.get(rootUrl + "/api/playlists", {headers: setHeader()})
       .success(function(response){
         console.log(response)
-        $scope.songs = response.songs;
+        $scope.playlists = response.songs;
+        console.log("why won't you append the song jerk")
     })
   }
 
@@ -31,6 +32,7 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
     // $scope.user
 
   $scope.spotify = function() {
+    console.log("hi there");
     $scope.show = true
     song = $scope.spotify.searchedSong
     $http.get(rootUrl + '/api/artists', {
@@ -39,12 +41,11 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
     })
       .success(function(response){
         $scope.songs = response
-        console.log(response.name)
+        console.log(response)
       })
   }
 
   $scope.songInfo = function(){
-    console.log(this);
     var songName = this.song.name;
     console.log(this.song.album.images[0].name)
     var artistName = this.song.artists[0].name;
@@ -53,7 +54,6 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
     if (artistName === null || artistName === undefined) { artistName = null };
     if (songImages === null || songImages === undefined) { songImages = null };
     var songAttributes = {title: songName, artist: artistName, image_src: songImages};
-
     $http.post(rootUrl + "/api/songs", songAttributes, {
       headers: setHeader()
     })
@@ -61,9 +61,9 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
 
     })
     .catch(function(data) {
-      showAlert(data.data.errors[0])
+      // showAlert(data.data.errors[0])
     })
-    // console.log(response);
+    $window.location.reload();
   }
 
   $scope.$on("$ionicView.beforeEnter", function(){

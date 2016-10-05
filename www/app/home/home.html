@@ -19,7 +19,7 @@
     <div ng-show="show" id="user-search-list">
       <h3>Results</h3>
       <div class="list">
-        <button id="song-btn" ng-click="playlist()" class="item card icon ion-plus-circled icon-right" ng-repeat="song in songs">
+        <button id="song-btn" ng-click="songInfo()" class="item card icon ion-plus-circled icon-right" ng-repeat="song in songs">
           {{song.artists[0].name}}
           <p>{{song.name}}</p>
         </button>
