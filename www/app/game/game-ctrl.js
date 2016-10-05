@@ -39,6 +39,7 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', function($http, $sc
   $scope.shuffle = function(){
     console.log("shuffle")
     $state.go('tabs.game', {reload: true});
+      $scope.btnClick()
   }
 
   $scope.createParty = function() {
@@ -52,12 +53,11 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', function($http, $sc
   }
 
   $scope.joinParty = function() {
-    $http.put(rootUrl + "/api/parties/" + $scope.party.id, {headers: setHeader()})
+    $http.put(rootUrl + "/api/parties/" + $scope.party.id, {},{headers: setHeader()})
     .then(function(response){
       console.log(response)
       $state.go('tabs.game', {reload: true});
       angular.element('#game-title').text("Game #ID: " + response.data.id)
-      $scope.btnClick()
     })
   }
 
@@ -68,6 +68,11 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', function($http, $sc
         $scope.playlists = response.songs;
     })
   }
+
+  $scope.$on("$ionicView.beforeEnter", function(){
+    // $scope.playlist();
+    console.log("please do this")
+  })
 
 
 }]);
