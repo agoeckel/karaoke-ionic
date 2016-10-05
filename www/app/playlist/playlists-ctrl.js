@@ -17,7 +17,7 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
     $http.get(rootUrl + "/api/playlists", {headers: setHeader()})
       .success(function(response){
         console.log(response)
-        $scope.playlists = response.songs;
+        $scope.songs = response.songs;
     })
   }
 
@@ -37,12 +37,31 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
     })
       .success(function(response){
         $scope.songs = response
-        console.log(response)
+        console.log(response.name)
       })
   }
 
   $scope.songInfo = function(){
-    console.log("this is a song")
+    console.log(this);
+    var songName = this.song.name;
+    console.log(this.song.album.images[0].name)
+    var artistName = this.song.artists[0].name;
+    var songImages = this.song.album.images[0].url;
+    if (songName === null || songName === undefined) { songName = null };
+    if (artistName === null || artistName === undefined) { artistName = null };
+    if (songImages === null || songImages === undefined) { songImages = null };
+    var songAttributes = {title: songName, artist: artistName, image_src: songImages};
+
+    $http.post(rootUrl + "/api/songs", songAttributes, {
+      headers: setHeader()
+    })
+    .then(function(response){
+
+    })
+    .catch(function(data) {
+      showAlert(data.data.errors[0])
+    })
+    // console.log(response);
   }
 
   $scope.$on("$ionicView.beforeEnter", function(){

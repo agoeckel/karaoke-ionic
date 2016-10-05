@@ -28,7 +28,7 @@ h1, h3, .title {
   width: 90%;
 }
 
-.list {
+.list, .spotify-list {
   max-width: 500px;
   margin: auto;
 }
