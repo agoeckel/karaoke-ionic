@@ -24,3 +24,85 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+/* Empty. Add your own CSS if you like */
+
+h1, h3, .title {
+  color: #424242;
+  text-align: center;
+}
+
+#login-btn {
+  margin-top: 300px;
+}
+
+.button {
+  background-color: #26C6DA;
+  width: 90%;
+}
+
+.popup-buttons {
+  background-color: #26C6DA;
+  width: 200px;
+}
+
+.list-inset {
+  width: 90%;
+}
+
+.list, .spotify-list {
+  max-width: 500px;
+  margin: auto;
+}
+
+.login-form-container {
+  margin-top: 10%;
+}
+
+input {
+  border: none;
+}
+
+.register {
+  margin: auto;
+  max-width: 500px;
+  padding: 10px;
+  border-bottom: 1px solid white;
+  border-top: 1px solid white;
+  text-align: center;
+}
+
+.register:select {
+  background-color: white;
+}
+
+#song-btn {
+  margin: auto;
+  margin-bottom: 5px;
+  text-align: left;
+  width: 90%;
+}
+
+a {
+  text-decoration: none;
+  color: #212121;
+}
+
+.title {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+ .content {
+  height: 100%;
+  background-color: #BDBDBD;
+}
+
+.card {
+  padding: 8px;
+  margin: 8px;
+}
+
+.img-container {
+  text-align: center;
+  width: 100%;
+}
+
