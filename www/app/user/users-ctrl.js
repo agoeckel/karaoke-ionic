@@ -1,4 +1,4 @@
-function setHeader() {
+setHeader = function() {
   return {
     "access-token": window.sessionStorage.token,
     "token-type": "Bearer",
