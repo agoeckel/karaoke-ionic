@@ -2,7 +2,10 @@
 var rootUrl = "http://localhost:3000"
 var karaoke = angular.module('karaokeApp', ['ionic'])
 
+
 .run(function($ionicPlatform) {
+  // ngFB.init({appId: '1602849213349267'});
+
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -77,4 +80,3 @@ var karaoke = angular.module('karaokeApp', ['ionic'])
 .config(function($ionicConfigProvider) {
   $ionicConfigProvider.tabs.position('bottom');
 });
-

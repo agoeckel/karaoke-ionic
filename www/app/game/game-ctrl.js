@@ -14,6 +14,7 @@ function playlistShuffle(){
   return userPlaylistSongs[index]
 }
 
+
 karaoke.controller('GameCtrl', ['$http', '$scope', '$state', function($http, $scope, $state){
   function setHeader() {
   return {

@@ -22,13 +22,12 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state', function($scop
     })
   }
 
-  // $http.get(rootUrl + $scope.playlists.id + '/playlists' + $scope.playlists.id)
-  //   .success(function(response){
-  //     $scope.userplaylist = response
-  //   })
-
-    $scope.playlistParty
-    // $scope.user
+    $scope.createParty = function(){
+      $http.post(
+        rootUrl + "/playlists",
+        {artist: $scope.artist, title: $scope.title}
+      )
+    }
 
   $scope.spotify = function() {
     $scope.show = true
@@ -51,7 +50,5 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state', function($scop
   $scope.$on("$ionicView.beforeEnter", function(){
     $scope.playlist();
   })
-
   $scope.show = false
-
 }]);
