@@ -6,12 +6,11 @@
     </label>
     <h3>My Playlist</h3>
     <div class="list">
-      <div class="item card" ng-repeat="playlist in playlists">
-        {{playlist.artist}}
-        <p>{{playlist.title}}</p>
+      <div class="item card" ng-repeat="song in songs">
+        {{song.artist}}
+        <p>{{song.title}}</p>
       </div>
     </div>
-      <button ng-click="playlist()">hello</button>
   </ion-content>
 </ion-view>
 
