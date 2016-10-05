@@ -41,7 +41,7 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', function($http, $sc
     $http.post(rootUrl + '/api/parties', {}, {headers: setHeader()})
     .then(function(response){
       console.log(response)
-      // <div class="item">response</div>
+      angular.element('.list').append("<div class='item'>{{response}}response</div>")
     console.log("user")
     $scope.btnClick()
     // $scope.shuffle()
