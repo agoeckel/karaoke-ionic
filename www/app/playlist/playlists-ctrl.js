@@ -14,6 +14,7 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
 
 
   $scope.playlist = function(){
+    $scope.show =
     $http.get(rootUrl + "/api/playlists", {headers: setHeader()})
       .success(function(response){
         console.log(response)
@@ -30,6 +31,7 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
     // $scope.user
 
   $scope.spotify = function() {
+    $scope.show = true
     song = $scope.spotify.searchedSong
     $http.get(rootUrl + '/api/artists', {
       headers: setHeader(),
@@ -46,7 +48,9 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', function($scope, $http) 
   }
 
   $scope.$on("$ionicView.beforeEnter", function(){
-    console.log("do it")
     $scope.playlist();
   })
+
+  $scope.show = false
+
 }]);
