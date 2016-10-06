@@ -49,11 +49,6 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
     })
   }
 
-  $scope.removeThis = function() {
-     var elmn = angular.element( document.querySelector( '#mySong' ) );
-     elmn.remove();
-  };
-
   $scope.destroySong = function() {
     var songIndex = this.$index
     var songName = this.$$watchers[0].last;
@@ -62,7 +57,6 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
     }).then(function(){
       console.log(this)
     })
-
 
   }
   $scope.show = false
