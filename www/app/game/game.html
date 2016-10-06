@@ -3,22 +3,19 @@
     <h1 class="title">Karaoke Rollette</h1>
   </div>
   <ion-content class="background-image content has-header">
+  <ion-content class="content has-header">
+    <button id="leave-btn" class="icon ion-android-walk icon-right" ng-click="leaveParty()">Leave Party</button>
     <h1 id="game-title" class="title">Party: {{partySongs[0].party_id}}</h1>
       <div id="party" class="col">
-        <div class="row col-offset-2">party person1<br></div>
-        <div class="row col-offset-2">party person2<br></div>
-        <div class="row col-offset-2">party person3<br></div>
+        <div class="party-people-header row header">Party People</div>
+        <div id='party-people' class="row col-offset-2" ng-repeat="person in partyPeople">{{person.name}}<br></div>
       </div>
     <button ng-click="user()" class="button button-calm button-block icon ion-mic-c">Start</button>
-    <button ng-click="shuffle()" class="button button-calm button-block icon ion-shuffle icon-right">Shuffle</button>
-
+    <button ng-click="shuffleSong()" class="button button-calm button-block icon ion-shuffle icon-right">Shuffle</button>
       <div class="img-container">
         <p ng-hide="IsHidden">shuffling...</p>
         <img ng-hide="IsHidden" id="shuffle-wheel" src="../img/loader.gif" height="50px">
       </div>
-
-      <!-- list out the people in the party -->
-
     <div id="party-list" class="list list-inset">
       <div class="list card" >
         <div class="item item-avatar">
