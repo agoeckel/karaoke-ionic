@@ -3,18 +3,15 @@
     <h1 class="title">Party: {{partySongs[0].party_id}}</h1>
   </div>
   <ion-content class="background-image content has-header">
-
     <h3 class="party-people-header row header">Our Crowd</h3>
 
     <div id="party" class="party-background" class="col">
       <div class="row col-offset-2 party-background" ng-repeat="person in partyPeople"><p class='party-people'>{{person.name}}</p></div>
     </div>
-
     <button ng-click="shuffleSong()" class="button button-calm button-block icon ion-shuffle icon-right">Shuffle</button>
-
     <div class="img-container">
       <p class="white-font" ng-hide="IsHidden">shuffling...</p>
-      <img ng-hide="IsHidden" id="shuffle-wheel" src="../img/loader.gif" height="50px">
+      <img ng-hide="IsHidden" id="shuffle-wheel" src="../img/discoballtransmall.gif" height="50px">
     </div>
 
     <div id="party-list" class="list card" >

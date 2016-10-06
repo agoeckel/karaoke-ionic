@@ -1,6 +1,5 @@
 karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', function($scope, $http, $state, $window) {
 
-
   function setHeader() {
     return {
       "access-token": window.sessionStorage.token,
@@ -33,12 +32,10 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
     var songName = this.song.name;
     var artistName = this.song.artists[0].name;
     var songImages = this.song.album.images[0].url;
-
     if (songName === null || songName === undefined) { songName = null };
     if (artistName === null || artistName === undefined) { artistName = null };
     if (songImages === null || songImages === undefined) { songImages = null };
     var songAttributes = {title: songName, artist: artistName, image_src: songImages};
-
     $http.post(rootUrl + "/api/songs", songAttributes, {
       headers: setHeader()
     })
@@ -50,14 +47,14 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
   }
 
   $scope.destroySong = function() {
+    var itemToDeleted = this
     var songIndex = this.$index
     var songName = this.$$watchers[0].last;
     $http.delete(rootUrl + "/api/playlist_songs/" + songName, {
       headers: setHeader()
     }).then(function(){
-      console.log(this)
+      angular.element("#" + itemToDeleted.song.id).closest('div').remove()
     })
-
   }
   $scope.show = false
 }]);
