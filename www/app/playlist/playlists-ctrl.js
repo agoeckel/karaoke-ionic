@@ -12,13 +12,10 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
     };
   };
 
-  $scope.playlist = function(){
-    $scope.show = false
-    $http.get(rootUrl + "/api/playlists", {headers: setHeader()})
-      .success(function(response){
-        $scope.playlists = response.songs;
-    })
-  }
+  $http.get(rootUrl + "/api/playlists", {headers: setHeader()})
+    .success(function(response){
+      $scope.playlists = response.songs;
+  })
 
   $scope.spotify = function() {
     console.log("hi there");
@@ -46,10 +43,8 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
       headers: setHeader()
     })
     .then(function(response){
-      $window.location.reload();
-    })
-    .catch(function(data) {
-      // showAlert(data.data.errors[0])
+      angular.element(".all-songs-list").append("<div class='item card'><p><strong>"+response.config.data.artist+"</strong></p><p>"+response.config.data.title+"</p><button id="+response.data.song_id+" ng-click='destroySong()' class='item card icon ion-minus-circled song-delete-btn'>   Delete</button></div>");
+      $scope.show = false
     })
   }
 
@@ -63,8 +58,5 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
     })
   }
 
-  $scope.$on("$ionicView.beforeEnter", function(){
-    $scope.playlist();
-  })
   $scope.show = false
 }]);
