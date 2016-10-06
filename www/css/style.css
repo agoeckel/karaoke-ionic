@@ -108,7 +108,7 @@ a {
 
 #game-title {
   float: right;
-  font-size: 1em;
+  font-size: 2em;
   display: inline-block;
 }
 
@@ -122,6 +122,20 @@ a {
 
 .all-songs-list {
   width: 90%;
+}
+
+.party-people-header{
+  background-color: black;
+  color: white;
+}
+
+#party-people:nth-child(odd) {
+  background-color: white;
+}
+
+#leave-btn {
+  border: 1px solid black;
+  width: 120px;
 }
 
 #on-deck {

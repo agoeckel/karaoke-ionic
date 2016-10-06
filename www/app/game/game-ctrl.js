@@ -47,7 +47,9 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', '$ionicPopup', '$wi
         $timeout(function(){
           $scope.IsHidden = true
           angular.element("#upcoming-singer").append("<div class='list card'><div class='item'><p><strong>"+response.data.song_title+"</strong></p><p>"+response.data.song_artist+"</p><p>"+response.data.singer_name+"</p></div></div>")
-        }, 2000);
+        }, 1000);
+    }).catch(function(data){
+      $scope.noPartyAlert();
     })
   }
 
@@ -69,13 +71,6 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', '$ionicPopup', '$wi
     })
   }
 
-  $scope.getPartyPeople = function(){
-    $http.get(rootUrl + "/api/party_people", {headers: setHeader()})
-    .then(function(response){
-      angular.element("#party").append("<div class='col'>1<br></div>")
-    })
-  }
-
   $http.get(rootUrl + "/api/parties/players_data", {headers: setHeader()})
     .then(function(response){
       $scope.partyPeople = response.data
@@ -88,10 +83,23 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', '$ionicPopup', '$wi
    });
   }
 
+  $scope.leaveParty = function() {
+    $http.put(rootUrl + "/api/parties/remove_player", {}, {headers: setHeader()})
+      .then(function(){
+      $state.go('tabs.home');
+    })
+  }
+
   $scope.waitAlert = function() {
     var alertPopup = $ionicPopup.alert({
      title: "WAIT YOUR TURN"
    });
+  }
+
+  $scope.noPartyAlert = function() {
+    var alertPopup = $ionicPopup.alert({
+     title: "NO CURRENT PARTY",
+    });
   }
 
 
