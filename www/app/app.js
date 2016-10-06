@@ -3,7 +3,6 @@ var karaoke = angular.module('karaokeApp', ['ionic'])
 
 
 .run(function($ionicPlatform) {
-  // ngFB.init({appId: '1602849213349267'});
 
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -43,11 +42,13 @@ var karaoke = angular.module('karaokeApp', ['ionic'])
     .state('tabs', {
       url: '/tab',
       abstract: true,
+      cache: false,
       templateUrl: 'app/nav/nav.html'
     })
 
     .state('tabs.home', {
       url: "/home",
+      cache: false,
       views: {
         'home-tab': {
           templateUrl: 'app/home/home.html'
@@ -57,6 +58,7 @@ var karaoke = angular.module('karaokeApp', ['ionic'])
 
     .state('tabs.app', {
       url: "/playlist",
+      cache: false,
       views: {
         'join-tab': {
           templateUrl: 'app/playlist/playlist.html'
@@ -66,6 +68,7 @@ var karaoke = angular.module('karaokeApp', ['ionic'])
 
     .state('tabs.game', {
       url: "/game",
+      cache: false,
       views: {
         'game-tab': {
           templateUrl: 'app/game/game.html'

@@ -4,17 +4,38 @@
     <button ng-click="user()" class="button button-calm button-block icon ion-mic-c">Start</button>
     <button ng-click="shuffle()" class="button button-calm button-block icon ion-shuffle icon-right">Shuffle</button>
       <div class="img-container">
+        <p ng-hide="IsHidden">shuffling...</p>
         <img ng-hide="IsHidden" id="shuffle-wheel" src="../img/loader.gif" height="50px">
       </div>
+
+      <!-- list out the people in the party -->
+      <div id="party" class="row">
+        <div class="col" ng-repeat="person in partyPeople">1<br></div>
+      </div>
+
     <div id="party-list" class="list list-inset">
-      <div class="item">
-        Raiders of the Lost Ark
+      <div class="list card" >
+        <div class="item item-avatar">
+          <h2>{{currentSinger.song_artist}}</h2>
+          <p>{{currentSinger.song_title}}</p>
+          <button ng-click='doneSong()' class="item card icon ion-minus-circled song-delete-btn">   Done</button>
+        </div>
+        <div class="item item-image">
+          <img src="{{currentSinger.playlists.songs.img}}">
+        </div>
+        <div class="item item-icon-left assertive">
+          <i class="icon ion-music-note"></i>
+          Singer:  {{currentSinger.singer_name}}
+        </div>
       </div>
-      <div class="item">
-        Raiders of the Lost Ark
-      </div>
-      <div class="item">
-        Raiders of the Lost Ark
+    </div>
+    <div id="upcoming-singer">
+      <div class="list card" ng-repeat="data in partySongs" >
+        <div class="item ">
+          <p><strong>{{data.song_title}}</strong></p>
+          <p>{{data.song_artist}}</p>
+          <p>{{data.singer_name}}</p>
+        </div>
       </div>
     </div>
   </ion-content>

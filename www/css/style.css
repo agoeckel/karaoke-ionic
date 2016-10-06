@@ -20,6 +20,10 @@ h1, h3, .title {
   width: 200px;
 }
 
+#party {
+  overflow: scroll;
+}
+
 .list-inset {
   width: 90%;
 }
@@ -81,6 +85,7 @@ a {
   width: 100%;
 }
 
+<<<<<<< HEAD
 /*================REGISTER BUTTON=================*/
 
 .button.button-calm {
@@ -119,5 +124,10 @@ a {
   transform: rotateZ(45deg)   ;
   -webkit-transform-origin: 0 100% 0deg;
   transform-origin: 0 100% 0deg;
+
+.song-delete-btn{
+  position: relative;
+  bottom: 25px ;
+  left: 80%;
 }
 
