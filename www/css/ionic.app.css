@@ -2985,12 +2985,26 @@ $dark:                            #424242 !default;
   -o-background-size: cover;
   background-size: cover; }
 
+.background-image:after {
+  background: url("../img/background-graphic.svg") no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
 .popup-buttons {
   margin: 0 auto; }
 
 .popup-container .popup {
   background-color: rgba(255, 255, 255, 0.15);
   border: white; }
+
+.item {
+  border: none !important;
+  opactiy: 0.65 !important; }
+
+.login-form-container {
+  padding-top: 30px; }
 
 /**
  * Resets
