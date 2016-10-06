@@ -1,10 +1,10 @@
 <ion-view ng-controller="PlaylistsCtrl">
-<div ng-hide="show" class="bar bar-header bar-calm">
-  <h1 class="title">Song List</h1>
-</div>
-<div ng-show="show" class="bar bar-header bar-calm">
-  <h1 class="title">Results</h1>
-</div>
+  <div ng-hide="show" class="bar bar-header bar-calm">
+    <h1 class="title">Song List</h1>
+  </div>
+  <div ng-show="show" class="bar bar-header bar-calm">
+    <h1 class="title">Results</h1>
+  </div>
   <ion-content class="background-image content has-header">
       <label class="item item-input">
         <i class="icon ion-search placeholder-icon"></i>
@@ -12,8 +12,8 @@
           <input ng-model="spotify.searchedSong" type="search" placeholder="Search Song">
         </form>
       </label>
-      <div ng-hide="show" class="list-container">
-        <div class="list user-playlist">
+      <div ng-hide="show" class="list-container" id="user-playlist">
+        <div class="list">
           <div class="item card list-items" ng-repeat="song in playlists">
             <p><strong>{{song.title}}</strong></p>
             <p>{{song.artist}}</p>
