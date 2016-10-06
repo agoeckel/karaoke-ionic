@@ -1,22 +1,29 @@
 
 <ion-view ng-init="logout()" class="login-container" ng-controller="UserCtrl">
-  <ion-content class="background-image content login">
-      <form class="login-form-container list">
-        <div class="form-field">
-          <ion-item>
-            <ion-label class="icon ion-email icon-right item item-input item-stacked-label item-divider" color="primary" stacked>   Email</ion-label>
-            <input id="email" type="email" ng-model="user.email" placeholder="Email">
-          </ion-item>
-        </div>
-        <div class="form-field">
-          <ion-item>
-            <ion-label class="icon ion-lock-combination icon-right" color="primary" stacked>  Password</ion-label>
-            <input id="password" type="password" ng-model="user.password" placeholder="Password">
-          </ion-item>
-        </div>
-        <button type="submit" ng-click="login()" class="button button-calm button-block">Login</button>
-        <button ng-click="regpage()" class="button button-calm button-block">Register</button>
-      </form>
+  <ion-content class="background-graphic content login">
+  
+        <form class="login-form-container list">
+          <div class="form-field">
+            <ion-item>
+              <ion-label class="icon ion-email icon-right" color="primary" stacked>   Email</ion-label>
+              <input id="email" type="email" ng-model="user.email" placeholder="Email">
+            </ion-item>
+          </div>
+          <div class="form-field">
+            <ion-item>
+              <ion-label class="icon ion-lock-combination icon-right" color="primary" stacked>  Password</ion-label>
+              <input id="password" type="password" ng-model="user.password" placeholder="Password">
+            </ion-item>
+          </div>
+          <div class="button-container">
+            <div class="button-shape">
+              <button type="submit" ng-click="login()" class="button button-calm button-block">Login</button>
+            </div>
+            <div class="button-shape">
+              <button ng-click="regpage()" class="button button-calm button-block">Register</button>
+            </div>
+          </div>
+        </form>
   </ion-content>
 </ion-view>
 
