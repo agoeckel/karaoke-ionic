@@ -19,8 +19,13 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
 
   showAlert = function(alert) {
     var alertPopup = $ionicPopup.alert({
-      title: alert,
-      cssClass: 'popupstyle'
+      title: 'Something Went Wrong. Please try again to join the party!',
+      cssClass: 'popupstyle',
+      id: 'popupUserSignup',
+      buttons: [{
+        text: 'ok',
+        type: 'button-assertive'
+      }]
     });
   };
 

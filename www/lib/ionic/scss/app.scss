@@ -1,0 +1,39 @@
+// $stable:                           #403a4a !default;
+$positive:                         #403a4a!default;
+$balanced:                        #403a4a !default;
+$energized:                       #403a4a !default;
+$assertive:                       #403a4a !default;
+// $royal:                           #403a4a!default;
+// $dark:                            #403a4a !default;
+
+
+// HEADER AND THE BUTTONS
+$calm:                             #403a4a !default;
+// $popup-button-min-height:
+
+// FORM FIELD
+// $light:                           #403a4a !default;
+
+
+.background-image {
+  background: url('../img/background-image.png') no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.popup-buttons  {
+  margin: 0 auto;
+}
+
+.popupstyle {
+  // height: 500px;
+  // background-color: yellow;
+}
+
+.popup-container .popup {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: white;
+}
