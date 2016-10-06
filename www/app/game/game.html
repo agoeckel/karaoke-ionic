@@ -2,9 +2,8 @@
   <ion-content class="content has-header">
     <h1 id="game-title" class="title">Party: {{partySongs[0].party_id}}</h1>
       <div id="party" class="col">
-        <div class="row col-offset-2">party person1<br></div>
-        <div class="row col-offset-2">party person2<br></div>
-        <div class="row col-offset-2">party person3<br></div>
+        <div class="row header">Party People</div>
+        <div class="row col-offset-2" ng-repeat="person in partyPeople">{{person.name}}<br></div>
       </div>
     <button ng-click="shuffleSong()" class="button button-calm button-block icon ion-shuffle icon-right shuffle">Shuffle</button>
       <div class="img-container">
