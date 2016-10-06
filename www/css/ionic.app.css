@@ -3049,6 +3049,88 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   width: 80%;
   margin: 0 auto !important; }
 
+.card {
+  margin: auto;
+  margin-top: 10px;
+  margin-left: 5% !important;
+  opacity: 0.65 !important;
+  border-radius: 9px !important;
+  text-align: left;
+  width: 90%; }
+
+.item-input {
+  opacity: 0.80; }
+
+h1.title {
+  font-size: 1.5em;
+  opacity: 0.85; }
+
+button#song-btn {
+  margin-top: 10px; }
+
+.delete-song-btn {
+  float: right;
+  color: #f28282;
+  position: relative;
+  top: -23px; }
+
+.tabs {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.65) !important; }
+
+.tab-items {
+  border-right: 1px; }
+
+.tabs-striped.tabs-color-calm .tab-item.tab-item-active, .tabs-striped.tabs-color-calm .tab-item.active, .tabs-striped.tabs-color-calm .tab-item.activated {
+  color: #f28282 !important;
+  border-top: 2px solid #f28282 !important; }
+
+.join-party-input {
+  width: 115% !important;
+  margin-left: -5% !important;
+  opacity: .80; }
+
+#party {
+  height: 70px;
+  overflow: scroll;
+  display: inline-block;
+  width: 95%;
+  border-radius: 9px;
+  margin-left: 2%; }
+
+.party-background {
+  background-color: white;
+  opacity: .65; }
+
+.party-people {
+  margin: 0 auto; }
+
+.party-people-header {
+  margin-left: 35%;
+  color: white;
+  opacity: 0.90; }
+
+.white-font {
+  color: white; }
+
+#party-list {
+  border-radius: 9px;
+  opacity: .80;
+  background-color: blue; }
+
+.singer-name {
+  color: #f28282 !important; }
+
+.next-song-info {
+  padding-left: 5% !important; }
+
+.song-done-btn {
+  float: right;
+  position: relative;
+  bottom: 20px;
+  right: 20px;
+  color: #f28282; }
+
 /**
  * Resets
  * --------------------------------------------------
