@@ -19,6 +19,10 @@ h1, h3, .title {
   width: 200px;
 }
 
+#party {
+  overflow: scroll;
+}
+
 .list-inset {
   width: 90%;
 }

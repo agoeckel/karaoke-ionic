@@ -15,7 +15,7 @@ function playlistShuffle(){
 }
 
 
-karaoke.controller('GameCtrl', ['$http', '$scope', '$state', '$ionicPopup', '$window', '$interval', function($http, $scope, $state, $ionicPopup, $window, $interval){
+karaoke.controller('GameCtrl', ['$http', '$scope', '$state', '$ionicPopup', '$window', '$timeout', function($http, $scope, $state, $ionicPopup, $window, $timeout){
   $scope.party = {
     id: ""
   }
@@ -34,8 +34,6 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', '$ionicPopup', '$wi
   $scope.IsHidden = true;
   $scope.btnClick = function(){
     $scope.IsHidden = false
-    $interval(function(){$scope.IsHidden = true}, 3000);
-    $interval.cancel()
       // $scope.IsHidden = $scope.IsHidden ? false : true;
     }
 
@@ -71,22 +69,43 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', '$ionicPopup', '$wi
       .then(function(response){
         console.log(response)
         $scope.btnClick()
-        angular.element("#upcoming-singer").append("<div class='list card'><div class='item'><p><strong>"+response.data.song_title+"</strong></p><p>"+response.data.song_artist+"</p><p>"+response.data.singer_name+"</p></div></div>")
+          $scope.IsHidden = false
+          $timeout(function(){
+            $scope.IsHidden = true
+            angular.element("#upcoming-singer").append("<div class='list card'><div class='item'><p><strong>"+response.data.song_title+"</strong></p><p>"+response.data.song_artist+"</p><p>"+response.data.singer_name+"</p></div></div>")
+           }, 2000);
     })
   }
 
 
   $http.get(rootUrl + "/api/song_matches", {headers: setHeader()})
     .then(function(response){
-      console.log(response.data)
+      // console.log(getPartyPeople())
+      var userPartySongs = response.data
       $scope.partySongs = response.data
-      $scope.currentSinger = $scope.partySongs[0]
+      $scope.currentSinger = response.data[0]
+      // made partySong a global variable so we could grab the song id on done click
+      partySong = userPartySongs.shift()
   })
 
+  $scope.doneSong = function() {
+    $http.delete(rootUrl + "/api/song_matches/" + partySong.song_id, {
+      headers: setHeader()
+    }).then(function(response){
+    })
+  }
+
+  $scope.getPartyPeople = function(){
+    $http.get(rootUrl + "/api/party_people", {headers: setHeader()})
+    .then(function(response){
+      angular.element("#party").append("<div class='col'>1<br></div>")
+      console.log(response)
+    })
+  }
 
   $scope.idAlert = function(id) {
     var alertPopup = $ionicPopup.alert({
-     title: "YOU\'RE party ID:  " + id,
+     title: "YOUR party ID:  " + id,
      template: 'Share this id with your friends to join the party'
    });
   }
