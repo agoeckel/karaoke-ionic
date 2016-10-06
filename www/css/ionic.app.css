@@ -2978,19 +2978,56 @@ $dark:                            #424242 !default;
 .ion-xbox:before {
   content: ""; }
 
-.background-image {
+.pane, .view {
   background: url("../img/background-image.png") no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; }
+  background-size: cover;
+  z-index: -4; }
 
-.background-image:after {
+.content.background-graphic {
+  position: absolute;
   background: url("../img/background-graphic.svg") no-repeat center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; }
+  background-size: 97% !important;
+  top: 15px;
+  background-color: transparent !important;
+  top: -235px; }
+
+.background-graphic .login-form-container.list {
+  margin-top: 40%; }
+
+.login-form-container.list {
+  position: absolute !important;
+  padding-top: 62%;
+  width: 100%; }
+
+.background-graphic .login-form-container.list {
+  max-width: 100% !important; }
+
+.button.button-calm {
+  background-color: #f28282 !important;
+  opacity: 0.80; }
+
+.background-graphic .register-form-container.list {
+  margin-top: 90px !important; }
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, i, u, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, fieldset, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin-top: 1%; }
+
+.form-field .input-label {
+  padding: 0; }
+
+.login-form-container .button-container {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center; }
+
+.form-field .item {
+  padding: 8px 8px 8px 20px; }
+
+.scroll {
+  position: relative !important; }
 
 .popup-buttons {
   margin: 0 auto; }
@@ -3005,6 +3042,12 @@ $dark:                            #424242 !default;
 
 .login-form-container {
   padding-top: 30px; }
+
+.item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p {
+  opacity: 0.75;
+  border-radius: 9px;
+  width: 80%;
+  margin: 0 auto !important; }
 
 /**
  * Resets
