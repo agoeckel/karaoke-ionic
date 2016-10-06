@@ -53,6 +53,16 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
     })
   }
 
+  $scope.destroySong = function() {
+    var songName = this.$$watchers[0].last;
+    $http.destroy(rootUrl + "/api/songs/" + songName, {}, {
+      headers: setHeader()
+    })
+    .then(function(response){
+      $window.location.reload();
+    })
+  }
+
   $scope.$on("$ionicView.beforeEnter", function(){
     $scope.playlist();
   })

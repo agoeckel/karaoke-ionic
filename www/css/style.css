@@ -80,3 +80,9 @@ a {
   width: 100%;
 }
 
+.song-delete-btn{
+  position: relative;
+  bottom: 25px ;
+  left: 80%;
+}
+
