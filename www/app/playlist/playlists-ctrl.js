@@ -12,13 +12,13 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
     };
   };
 
-  $scope.playlist = function(){
+  // $scope.playlist = function(){
     $scope.show = false
     $http.get(rootUrl + "/api/playlists", {headers: setHeader()})
       .success(function(response){
         $scope.playlists = response.songs;
     })
-  }
+  // }
 
   $scope.spotify = function() {
     console.log("hi there");
@@ -28,9 +28,9 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
       headers: setHeader(),
       params: {track_name: song}
     })
-      .success(function(response){
-        $scope.songs = response
-      })
+    .success(function(response){
+      $scope.songs = response
+    })
   }
 
   $scope.songInfo = function(){
@@ -48,15 +48,17 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
       headers: setHeader()
     })
     .then(function(response){
-      $window.location.reload();
+      $scope.show = false;
+      console.log(response)
+      // $window.location.reload();
     })
     .catch(function(data) {
       // showAlert(data.data.errors[0])
     })
   }
 
-  $scope.$on("$ionicView.beforeEnter", function(){
-    $scope.playlist();
-  })
+  // $scope.$on("$ionicView.beforeEnter", function(){
+  //   $scope.playlist();
+  // })
   $scope.show = false
 }]);
