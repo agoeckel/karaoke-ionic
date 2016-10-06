@@ -55,7 +55,7 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
 
   $scope.destroySong = function() {
     var songName = this.$$watchers[0].last;
-    $http.destroy(rootUrl + "/api/songs/" + songName, {}, {
+    $http.delete(rootUrl + "/api/playlist_songs/" + songName, {
       headers: setHeader()
     })
     .then(function(response){
