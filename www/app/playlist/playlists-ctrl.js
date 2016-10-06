@@ -38,23 +38,32 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
     if (artistName === null || artistName === undefined) { artistName = null };
     if (songImages === null || songImages === undefined) { songImages = null };
     var songAttributes = {title: songName, artist: artistName, image_src: songImages};
+
     $http.post(rootUrl + "/api/songs", songAttributes, {
       headers: setHeader()
     })
     .then(function(response){
-      $scope.btnClick()
-      angular.element(".all-songs-list").append("<div class='item card'><p><strong>"+response.config.data.artist+"</strong></p><p>"+response.config.data.title+"</p><button id="+response.data.song_id+" ng-click='destroySong()' class='item card icon ion-minus-circled song-delete-btn'>   Delete</button></div>");
+      angular.element(".all-songs-list").append("<div ng-show='mySong' id='mySong' class='item card'><p><strong>"+response.config.data.artist+"</strong></p><p>"+response.config.data.title+"</p><button id="+response.data.song_id+" ng-click='destroySong()' class='item card icon ion-minus-circled song-delete-btn'>   Delete</button></div>");
+      $scope.show = false
+      $scope.spotify.searchedSong = ''
     })
   }
 
+  $scope.removeThis = function() {
+     var elmn = angular.element( document.querySelector( '#mySong' ) );
+     elmn.remove();
+  };
+
   $scope.destroySong = function() {
+    var songIndex = this.$index
     var songName = this.$$watchers[0].last;
     $http.delete(rootUrl + "/api/playlist_songs/" + songName, {
       headers: setHeader()
+    }).then(function(){
+      console.log(this)
     })
-    .then(function(response){
-      $window.location.reload();
-    })
+
+
   }
   $scope.show = false
 }]);

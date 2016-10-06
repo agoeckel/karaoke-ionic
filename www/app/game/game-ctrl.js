@@ -86,7 +86,7 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', '$ionicPopup', '$wi
 
   $scope.idAlert = function(id) {
     var alertPopup = $ionicPopup.alert({
-     title: "YOU\'RE party ID:  " + id,
+     title: "YOUR party ID:  " + id,
      template: 'Share this id with your friends to join the party'
    });
   }
