@@ -3025,18 +3025,11 @@ h1.title {
 button#song-btn {
   margin-top: 10px; }
 
-.ion-plus-circled:before {
+.delete-song-btn {
   float: right;
-  margin-top: 4%;
-  margin-right: 4%; }
-
-button.item.card {
+  color: #f28282;
   position: relative;
-  left: 65%;
-  bottom: 25px;
-  width: 25%;
-  background-color: #f28282;
-  opacity: 1 !important; }
+  top: -23px; }
 
 .tabs {
   opacity: 1;
@@ -3055,18 +3048,19 @@ button.item.card {
   opacity: .80; }
 
 #party {
-  background-color: white;
   height: 70px;
   overflow: scroll;
   display: inline-block;
-  opacity: .80;
   width: 95%;
   border-radius: 9px;
   margin-left: 2%; }
 
-#party-people {
-  text-align: center;
-  border-bottom: lightgrey; }
+.party-background {
+  background-color: white;
+  opacity: .65; }
+
+.party-people {
+  margin: 0 auto; }
 
 .party-people-header {
   margin-left: 35%;
@@ -3075,6 +3069,24 @@ button.item.card {
 
 .white-font {
   color: white; }
+
+#party-list {
+  border-radius: 9px;
+  opacity: .80;
+  background-color: blue; }
+
+.singer-name {
+  color: #f28282 !important; }
+
+.next-song-info {
+  padding-left: 5% !important; }
+
+.song-done-btn {
+  float: right;
+  position: relative;
+  bottom: 20px;
+  right: 20px;
+  color: #f28282; }
 
 /**
  * Resets
