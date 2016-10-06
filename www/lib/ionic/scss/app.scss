@@ -43,16 +43,13 @@ $calm:                             #403a4a !default;
 
 .background-graphic .login-form-container.list {
   margin-top: 40%;
+  max-width: 100% !important;
 }
 
 .login-form-container.list {
   position: absolute !important;
   padding-top: 62%;
   width: 100%;
-}
-
-.background-graphic .login-form-container.list {
-  max-width: 100% !important;
 }
 
 .button.button-calm {
@@ -103,9 +100,9 @@ $calm:                             #403a4a !default;
   margin-top: 90px !important;
 }
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, i, u, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, fieldset, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin-top: 1%;
-}
+// html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, i, u, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, fieldset, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+//   margin-top: 1%;
+// }
 
 
 .form-field .input-label {
@@ -140,21 +137,19 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 .item{
   border: none !important;
   opactiy: 0.65 !important;
-  // background-color: transparent !important;
 }
 
 .login-form-container{
   padding-top: 30px;
 }
 
-// <<<<<<< HEAD
-.item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p {
-  opacity: 0.75;
-  border-radius: 9px;
-  width: 80%;
-  margin: 0 auto !important;
-// =======
-}
+// .item, .item h1, .item h2, .item h3, .item h4, .item h5, .item h6, .item p, .item-content, .item-content h1, .item-content h2, .item-content h3, .item-content h4, .item-content h5, .item-content h6, .item-content p {
+//   opacity: 0.75;
+//   border-radius: 9px;
+//   width: 80%;
+//   margin: 0 auto !important;
+// }
+
 .card{
   margin: auto;
   margin-top: 10px;
@@ -236,7 +231,6 @@ button#song-btn{
   margin-left: 35%;
   color: white;
   opacity: 0.90;
-// >>>>>>> master
 }
 
 .white-font{
@@ -246,7 +240,6 @@ button#song-btn{
 #party-list{
   border-radius: 9px;
   opacity: .80;
-  background-color: blue;
 }
 
 .singer-name{
@@ -263,6 +256,10 @@ button#song-btn{
   bottom: 20px;
   right: 20px;
   color: #f28282;
+}
+
+.scroll{
+  min-height: 800px;
 }
 
 
