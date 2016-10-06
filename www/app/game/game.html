@@ -11,9 +11,8 @@
     <button ng-click="shuffleSong()" class="button button-calm button-block icon ion-shuffle icon-right">Shuffle</button>
     <div class="img-container">
       <p class="white-font" ng-hide="IsHidden">shuffling...</p>
-      <img ng-hide="IsHidden" id="shuffle-wheel" src="../img/discoballtransmall.gif" height="50px">
+      <img ng-hide="IsHidden" id="shuffle-wheel" src="../img/loader.gif" height="50px">
     </div>
-
     <div id="party-list" class="list card" >
       <div class="item item-avatar next-song-info">
         <h2>{{currentSinger.song_title}}</h2>
@@ -22,13 +21,11 @@
       <div class="item item-image">
         <img src="{{currentSinger.playlists.songs.img}}">
       </div>
-
       <div class="item">
         <h2 class="icon ion-music-note singer-name">   Singer: {{currentSinger.singer_name}}</h2>
         <i ng-click='doneSong()' class="icon ion-minus-circled song-done-btn"></i>
       </div>
     </div>
-
     <h3 class="party-people-header row header">Next Up</h3>
     <div id="upcoming-singer">
       <div id="on-deck" class="list card" ng-repeat="data in partySongs" >
