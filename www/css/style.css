@@ -14,13 +14,25 @@ h1, h3, .title {
   width: 90%;
 }
 
+.shuffle {
+  max-width: 50%;
+  margin: auto;
+  margin-left: 5%;
+}
+
+
 .popup-buttons {
   background-color: #26C6DA;
   width: 200px;
 }
 
 #party {
+  margin-left: 10px;
+  width: 25%;
+  height: 70px;
+  border: 1px solid white;
   overflow: scroll;
+  display: inline-block;
 }
 
 .list-inset {
@@ -79,6 +91,10 @@ a {
   margin: 8px;
 }
 
+.list .card {
+  margin: auto;
+}
+
 .img-container {
   text-align: center;
   width: 100%;
@@ -90,3 +106,25 @@ a {
   left: 80%;
 }
 
+#game-title {
+  float: right;
+  font-size: 1em;
+  display: inline-block;
+}
+
+.song-done-btn{
+  width: 40px;
+}
+
+#party-list {
+  max-width: 90%;
+}
+
+.all-songs-list {
+  width: 90%;
+}
+
+#on-deck {
+  max-width: 80%;
+  margin: auto;
+}
