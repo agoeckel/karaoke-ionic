@@ -8,10 +8,11 @@
     </label>
     <div ng-hide="show" id="user-playlist">
       <h3>My Playlist</h3>
-      <div class="list">
+      <div class="list all-songs-list">
         <div class="item card" ng-repeat="song in playlists">
-          {{song.artist}}
+          <p><strong>{{song.artist}}</strong></p>
           <p>{{song.title}}</p>
+          <button id="{{song.id}}" ng-click="destroySong()" class="item card icon ion-minus-circled song-delete-btn">   Delete</button>
         </div>
       </div>
     </div>
