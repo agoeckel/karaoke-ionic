@@ -4,9 +4,10 @@
     <description>
         An Ionic Framework and Cordova project.
     </description>
-    <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
-    </author>
+    <author email="alecgoeckel@gmail.com">Alec Goeckel</author>
+    <author email="dthomas865@gmail.com">David Thomas</author>
+    <author email="gjmcgough@gmail.com">Greg McGough</author>
+    <author email="kragudos19@gmail.com">Kat Ragudos</author>
     <content src="index.html" />
     <access origin="*" />
     <preference name="webviewbounce" value="false" />
