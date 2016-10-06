@@ -1,24 +1,28 @@
 <ion-view ng-controller="UserCtrl">
   <ion-content class="content login">
-    <form class="login-form-container list">
-      <ion-item>
-        <ion-label class="icon ion-person icon-right" color="primary" stacked>   Name</ion-label>
-        <input type="text" ng-model="user.name" placeholder="Name">
-      </ion-item>
-      <ion-item>
-        <ion-label class="icon ion-email icon-right" color="primary" stacked>   Email</ion-label>
-        <input type="email" ng-model="user.email" placeholder="Email">
-      </ion-item>
-      <ion-item>
-        <ion-label class="icon ion-lock-combination icon-right" color="primary" stacked>   Password</ion-label>
-        <input type="password" ng-model="user.password" placeholder="Password">
-      </ion-item>
-      <ion-item>
-        <ion-label class="icon ion-lock-combination icon-right" color="primary" stacked>   Confirm Password</ion-label>
-        <input type="password" ng-model="user.password_confirmation" placeholder="Confirm Password">
-      </ion-item>
-      <button ng-click="register()" class="button button-calm button-block">Register</button>
-    </form>
+    <div class="background-graphic">
+      <form class="login-form-container list">
+        <ion-item>
+          <ion-label class="icon ion-person icon-right" color="primary" stacked>   Name</ion-label>
+          <input type="text" ng-model="user.name" placeholder="Name">
+        </ion-item>
+        <ion-item>
+          <ion-label class="icon ion-email icon-right" color="primary" stacked>   Email</ion-label>
+          <input type="email" ng-model="user.email" placeholder="Email">
+        </ion-item>
+        <ion-item>
+          <ion-label class="icon ion-lock-combination icon-right" color="primary" stacked>   Password</ion-label>
+          <input type="password" ng-model="user.password" placeholder="Password">
+        </ion-item>
+        <ion-item>
+          <ion-label class="icon ion-lock-combination icon-right" color="primary" stacked>   Confirm Password</ion-label>
+          <input type="password" ng-model="user.password_confirmation" placeholder="Confirm Password">
+        </ion-item>
+        <div class="rhomb"> 
+          <button id="button-register" ng-click="register()" class="rhomb-reverse button button-calm button-block">Register</button>
+        </div>
+      </form>
+    </div>
   </ion-content>
 </ion-view>
 
