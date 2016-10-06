@@ -47,7 +47,7 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', '$ionicPopup', '$wi
         $timeout(function(){
           $scope.IsHidden = true
           angular.element("#upcoming-singer").append("<div class='list card'><div class='item'><p><strong>"+response.data.song_title+"</strong></p><p>"+response.data.song_artist+"</p><p>"+response.data.singer_name+"</p></div></div>")
-        }, 1500);
+        }, 2000);
     }).catch(function(data){
       $scope.noPartyAlert();
     })
