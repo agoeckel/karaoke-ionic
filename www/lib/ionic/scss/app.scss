@@ -64,6 +64,58 @@ $calm:                             #403a4a !default;
 }
 
 
+.card{
+  margin: auto;
+  margin-top: 10px;
+  margin-left: 5% !important;
+  opacity: 0.65 !important;
+  border-radius: 9px !important;
+  text-align: left;
+  width: 90%;
+}
+
+.item-input{
+  opacity: 0.80;
+}
+
+h1.title{
+  font-size: 1.5em;
+  opacity: 0.85;
+}
+
+button#song-btn{
+  margin-top: 10px;
+}
+
+.ion-plus-circled:before{
+  float: right;
+  margin-top: 4%;
+  margin-right: 4%;
+}
+
+button.item.card{
+  position: relative;
+  left: 65%;
+  bottom: 25px;
+  width: 25%;
+  background-color: #f28282;
+  opacity: 1 !important;
+}
+
+.tabs{
+  opacity: 1;
+  background-color: rgba(255,255,255,0.65) !important;
+}
+
+.tab-items{
+  border-right: 1px;
+}
+
+.tabs-striped.tabs-color-calm .tab-item.tab-item-active, .tabs-striped.tabs-color-calm .tab-item.active, .tabs-striped.tabs-color-calm .tab-item.activated{
+  color: #f28282 !important;
+  border-top: 2px solid #f28282 !important;
+}
+
 
 
 
