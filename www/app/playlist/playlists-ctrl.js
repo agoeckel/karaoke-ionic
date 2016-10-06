@@ -18,16 +18,15 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
   })
 
   $scope.spotify = function() {
-    console.log("hi there");
     $scope.show = true
     song = $scope.spotify.searchedSong
     $http.get(rootUrl + '/api/artists', {
       headers: setHeader(),
       params: {track_name: song}
     })
-      .success(function(response){
-        $scope.songs = response
-      })
+    .success(function(response){
+      $scope.songs = response
+    })
   }
 
   $scope.songInfo = function(){
@@ -43,8 +42,8 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
       headers: setHeader()
     })
     .then(function(response){
+      $scope.btnClick()
       angular.element(".all-songs-list").append("<div class='item card'><p><strong>"+response.config.data.artist+"</strong></p><p>"+response.config.data.title+"</p><button id="+response.data.song_id+" ng-click='destroySong()' class='item card icon ion-minus-circled song-delete-btn'>   Delete</button></div>");
-      $scope.show = false
     })
   }
 
@@ -57,6 +56,5 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
       $window.location.reload();
     })
   }
-
   $scope.show = false
 }]);
