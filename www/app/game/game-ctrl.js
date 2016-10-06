@@ -76,18 +76,18 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', '$ionicPopup', '$wi
       $scope.partyPeople = response.data
     })
 
-  $scope.idAlert = function(id) {
-    var alertPopup = $ionicPopup.alert({
-     title: "YOUR party ID:  " + id,
-     template: 'Share this id with your friends to join the party'
-   });
-  }
-
   $scope.leaveParty = function() {
     $http.put(rootUrl + "/api/parties/remove_player", {}, {headers: setHeader()})
       .then(function(){
       $state.go('tabs.home');
     })
+  }
+
+  $scope.idAlert = function(id) {
+    var alertPopup = $ionicPopup.alert({
+     title: "YOUR party ID:  " + id,
+     template: 'Share this id with your friends to join the party'
+   });
   }
 
   $scope.waitAlert = function() {
