@@ -52,7 +52,7 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', function($http, $sc
   }
 
   $scope.joinParty = function() {
-    $http.put(rootUrl + "/api/parties/" + $scope.party.id, {headers: setHeader()})
+    $http.put(rootUrl + "/api/parties/" + $scope.party.id, {}, {headers: setHeader()})
     .then(function(response){
       console.log(response)
       $state.go('tabs.game', {reload: true});

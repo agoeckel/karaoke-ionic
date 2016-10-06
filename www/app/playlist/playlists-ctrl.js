@@ -41,9 +41,7 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
     if (songName === null || songName === undefined) { songName = null };
     if (artistName === null || artistName === undefined) { artistName = null };
     if (songImages === null || songImages === undefined) { songImages = null };
-
     var songAttributes = {title: songName, artist: artistName, image_src: songImages};
-
     $http.post(rootUrl + "/api/songs", songAttributes, {
       headers: setHeader()
     })
@@ -52,6 +50,16 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
     })
     .catch(function(data) {
       // showAlert(data.data.errors[0])
+    })
+  }
+
+  $scope.destroySong = function() {
+    var songName = this.$$watchers[0].last;
+    $http.delete(rootUrl + "/api/playlist_songs/" + songName, {
+      headers: setHeader()
+    })
+    .then(function(response){
+      $window.location.reload();
     })
   }
 
