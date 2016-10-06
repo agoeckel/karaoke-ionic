@@ -1,4 +1,13 @@
 {
   "name": "karaoke-rollette",
-  "app_id": "6b847e9a"
+  "app_id": "6b847e9a",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
 }
