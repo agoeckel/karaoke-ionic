@@ -1,4 +1,10 @@
 <ion-view ng-controller="PlaylistsCtrl">
+<div ng-hide="show" class="bar bar-header bar-calm">
+  <h1 class="title">Song List</h1>
+</div>
+<div ng-show="show" class="bar bar-header bar-calm">
+  <h1 class="title">Results</h1>
+</div>
   <ion-content class="background-image content has-header">
   
       <label class="item item-input">
@@ -7,22 +13,21 @@
           <input ng-model="spotify.searchedSong" type="search" placeholder="Search Song">
         </form>
       </label>
-      <div ng-hide="show" id="user-playlist">
-        <h3>My Playlist</h3>
+      <div ng-hide="show" class="list-container" id="user-playlist">
         <div class="list">
-          <div class="item card" ng-repeat="song in playlists">
-            {{song.artist}}
-            <p>{{song.title}}</p>
+          <div class="item card list-items" ng-repeat="song in playlists">
+            <p><strong>{{song.title}}</strong></p>
+            <p>{{song.artist}}</p>
+            <button id="{{song.id}}" ng-click="destroySong()" class="item card icon ion-minus-circled song-delete-btn">   Delete</button>
           </div>
         </div>
       </div>
 
-      <div ng-show="show" id="user-search-list">
-        <h3>Results</h3>
+      <div ng-show="show" class="list-container" id="user-search-list">
         <div class="list">
-          <button id="song-btn" ng-click="songInfo()" class="item card icon ion-plus-circled icon-right" ng-repeat="song in songs">
-            {{song.artists[0].name}}
-            <p>{{song.name}}</p>
+          <button id="song-btn" ng-click="songInfo()" class="item card icon ion-plus-circled icon-right list-items" ng-repeat="song in songs">
+            <p><strong>{{song.name}}</strong></p>
+            <p>{{song.artists[0].name}}</p>
           </button>
         </div>
       </div>
