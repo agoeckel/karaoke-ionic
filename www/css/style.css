@@ -127,13 +127,13 @@ a {
   transform-origin: 0 100% 0deg;
 }
 
-.rhomb-reverse{
+.rhomb-reverse {
   min-width: 120px;
-  -webkit-transform: rotateZ(45deg)   ;
+  -webkit-transform: rotateZ(45deg);
   transform: rotateZ(45deg)   ;
   -webkit-transform-origin: 0 100% 0deg;
   transform-origin: 0 100% 0deg;
-
+}
 .song-delete-btn{
   position: relative;
   bottom: 25px ;

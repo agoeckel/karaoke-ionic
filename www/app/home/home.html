@@ -17,7 +17,8 @@
           <div class="item card list-items" ng-repeat="song in playlists">
             <p><strong>{{song.title}}</strong></p>
             <p>{{song.artist}}</p>
-            <button id="{{song.id}}" ng-click="destroySong()" class="item card icon ion-minus-circled song-delete-btn">   Delete</button>
+            <i id="{{song.id}}" ng-click="destroySong()" class="icon  ion-minus-circled delete-song-btn delete-song-btn"></i>
+            <!-- <button id="{{song.id}}" ng-click="destroySong()" class="item card icon ion-minus-circled song-delete-btn">   Delete</button> -->
           </div>
         </div>
       </div>
