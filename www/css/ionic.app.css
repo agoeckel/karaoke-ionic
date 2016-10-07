@@ -10040,6 +10040,7 @@ a {
   background-color: #BDBDBD; }
 
 .card {
+  float: left;
   padding: 8px;
   margin: 8px; }
 
