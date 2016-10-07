@@ -1,3 +1,12 @@
+karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', function($http, $scope, $state, $ionicPopup) {
+  $scope.user = {
+    name: "",
+    email: "",
+    password: "",
+    password_confirmation: ""
+  };
+
+
 setHeader = function() {
   return {
     "access-token": window.sessionStorage.token,
@@ -9,13 +18,6 @@ setHeader = function() {
   };
 };
 
-karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', function($http, $scope, $state, $ionicPopup) {
-  $scope.user = {
-    name: "",
-    email: "",
-    password: "",
-    password_confirmation: ""
-  };
 
   showAlert = function(alert) {
     var alertPopup = $ionicPopup.alert({
@@ -43,8 +45,9 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
 
   $scope.login = function() {
     if($scope.user.email && $scope.user.password) {
-        login = {email: $scope.user.email, password:$scope.user.password, name: $scope.user.name};
-        $http.post(rootUrl + "/v1/auth/sign_in", {}, login)
+        login = {email: $scope.user.email, password: $scope.user.password};
+        console.log(setHeader())
+        $http.post(rootUrl + "/v1/auth/sign_in", login, {headers: setHeader()})
         .then(function(response) {
           storeSession(response, response.data.data);
           $state.go('tabs.home');
@@ -60,7 +63,7 @@ karaoke.controller('UserCtrl', ['$http', '$scope', '$state', '$ionicPopup', func
   $scope.register = function() {
     if($scope.user.password === $scope.user.password_confirmation) {
       register = JSON.stringify($scope.user);
-      $http.post(rootUrl + '/v1/auth', {}, register)
+      $http.post(rootUrl + '/v1/auth', register, {headers: setHeader()})
     .then(function(response) {
       storeSession(response, response.data.data);
       $state.go('tabs.home');
