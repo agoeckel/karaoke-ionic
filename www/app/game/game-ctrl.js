@@ -55,6 +55,7 @@ karaoke.controller('GameCtrl', ['$http', '$scope', '$state', '$ionicPopup', '$wi
 
   $http.get(rootUrl + "/api/song_matches", {headers: setHeader()})
     .then(function(response){
+      console.log(response)
       var userPartySongs = response.data
       $scope.partySongs = response.data
       $scope.currentSinger = response.data[0]
