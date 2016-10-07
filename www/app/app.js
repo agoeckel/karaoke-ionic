@@ -2,6 +2,7 @@ var rootUrl = "http://kara-yoke-me.herokuapp.com"
 var karaoke = angular.module('karaokeApp', ['ionic'])
 
 
+
 .run(function($ionicPlatform) {
 
   $ionicPlatform.ready(function() {
