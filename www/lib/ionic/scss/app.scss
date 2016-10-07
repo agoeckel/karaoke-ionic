@@ -133,10 +133,10 @@ $calm:                             #403a4a !default;
   border: white;
 }
 
-.item{
-  border: none !important;
-  opactiy: 0.65 !important;
-}
+// .item{
+//   border: none !important;
+//   opactiy: 0.65 !important;
+// }
 
 .login-form-container{
   padding-top: 30px;
@@ -160,7 +160,8 @@ $calm:                             #403a4a !default;
 }
 
 .item-input{
-  opacity: 0.80;
+  opacity: 0.35;
+  border-radius: 9px;
 }
 
 h1.title{
@@ -198,13 +199,6 @@ button#song-btn{
 
 .tab-items{
   border-right: 1px;
-}
-
-
-.join-party-input{
-  width: 115% !important;
-  margin-left: -5% !important;
-  opacity: .80;
 }
 
 #party{
@@ -278,4 +272,20 @@ button#song-btn{
   border-radius: 9px;
 }
 
+.spotify-input{
+  width: 96%;
+  margin-left: 2% !important;
+  border-radius: 9px !important;
+}
 
+.join-party-input{
+  width: 100%;
+  border-radius: 9px !important;
+  opacity: .35;
+}
+
+.shuffle-btn{
+  width: 96% !important;
+  margin-left: 2% !important;
+  border-radius: 9px !important;
+}

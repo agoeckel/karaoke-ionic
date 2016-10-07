@@ -6,12 +6,14 @@
     <h1 class="title">Results</h1>
   </div>
   <ion-content class="background-image pane content has-header">
-    <label class="item item-input">
-      <i class="icon ion-search placeholder-icon"></i>
-      <form  ng-submit="spotify()">
-        <input ng-model="spotify.searchedSong" type="search" placeholder="Search Song">
-      </form>
-    </label>
+    <div class="spotify-input">
+      <div class="item item-input spotify-div">
+        <i class="icon ion-search placeholder-icon"></i>
+        <form  ng-submit="spotify()">
+          <input ng-model="spotify.searchedSong" type="search" placeholder="Search Song">
+        </form>
+      </div>
+    </div>
     <div ng-hide="show" class="list-container" id="user-playlist">
       <div class="list">
         <div class="item card list-items" ng-repeat="song in playlists">
