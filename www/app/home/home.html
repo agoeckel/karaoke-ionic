@@ -25,14 +25,15 @@
           </div>
         </div>
       </div>
-      <div ng-show="show" class="list-container" id="user-search-list">
-        <div class="list">
-          <button id="song-btn" ng-click="songInfo()" class="item card icon ion-plus-circled icon-right list-items" ng-repeat="song in songs">
-            <p><strong>{{song.name}}</strong></p>
-            <p>{{song.artists[0].name}}</p>
-          </button>
-        </div>
+    </div>
+    <div ng-show="show" class="list-container" id="user-search-list">
+      <div class="list">
+        <button id="song-btn" ng-click="songInfo()" class="item card icon ion-plus-circled icon-right list-items" ng-repeat="song in songs">
+          <p><strong>{{song.name}}</strong></p>
+          <p>{{song.artists[0].name}}</p>
+        </button>
       </div>
+    </div>
   </ion-content>
 </ion-view>
 
