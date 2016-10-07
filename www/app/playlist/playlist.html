@@ -5,14 +5,18 @@
   </div>
   <ion-content class="background-image pane content has-header padding">
     <div class="list">
-      <label class="item item-input join-party-input">
-        <i class="icon ion-person-stalker placeholder-icon"></i>
-        <form>
-          <input type="text" ng-model="party.id" placeholder="Enter ID to Join Game">
-        </form>
-      </label>
-      <button id="playlist-button" ng-click="joinParty()" class="button button-calm button-block icon ion-person-stalker ">Join Game</button>
-      <button ng-click="createParty()" class="button button-calm button-block icon ion-mic-c">    Start Game</button>
+      <div class="join-party-input">
+        <label class="item item-input join-party-input">
+          <i class="icon ion-person-stalker placeholder-icon"></i>
+          <form>
+            <input type="text" ng-model="party.id" placeholder="Enter ID to Join Game">
+          </form>
+        </label>
+      </div>
+
+      <button id="playlist-button" ng-click="joinParty()" class="button button-calm button-block icon ion-person-stalker shuffle-btn">Join Game</button>
+
+      <button ng-click="createParty()" class="button button-calm button-block icon ion-mic-c shuffle-btn">    Start Game</button>
     </div>
   </ion-content>
 </ion-view>

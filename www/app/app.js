@@ -1,6 +1,6 @@
-var rootUrl = "http://kara-yoke-me.herokuapp.com"
+var rootUrl = "http://localhost:3000"
 var karaoke = angular.module('karaokeApp', ['ionic'])
-
+// kara-yoke-me.herokuapp.com
 
 
 .run(function($ionicPlatform) {

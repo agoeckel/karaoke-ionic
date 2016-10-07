@@ -2990,12 +2990,11 @@ $dark:                            #424242 !default;
   position: absolute;
   background: url("../img/background-graphic.svg") no-repeat center;
   background-size: 97% !important;
-  top: 15px;
   background-color: transparent !important;
-  top: -235px; }
+  top: -180px; }
 
 .background-graphic .login-form-container.list {
-  margin-top: 40%;
+  margin-top: 25%;
   max-width: 100% !important; }
 
 .login-form-container.list {
@@ -3006,6 +3005,10 @@ $dark:                            #424242 !default;
 .button.button-calm {
   background-color: #f28282 !important;
   opacity: 0.80; }
+
+.tab-item-active {
+  color: #f28282 !important;
+  border-top: 1px solid #f28282 !important; }
 
 .background-graphic .register-form-container.list {
   margin-top: 90px !important; }
@@ -3031,10 +3034,6 @@ $dark:                            #424242 !default;
   background-color: rgba(255, 255, 255, 0.15);
   border: white; }
 
-.item {
-  border: none !important;
-  opactiy: 0.65 !important; }
-
 .login-form-container {
   padding-top: 30px; }
 
@@ -3048,7 +3047,8 @@ $dark:                            #424242 !default;
   width: 90%; }
 
 .item-input {
-  opacity: 0.80; }
+  opacity: 0.35;
+  border-radius: 9px; }
 
 h1.title {
   font-size: 1.5em;
@@ -3063,21 +3063,14 @@ button#song-btn {
   position: relative;
   top: -23px; }
 
+.scroll-content {
+  overflow: visible !important; }
+
 .tabs {
-  opacity: 1;
   background-color: rgba(255, 255, 255, 0.65) !important; }
 
 .tab-items {
   border-right: 1px; }
-
-.tabs-striped.tabs-color-calm .tab-item.tab-item-active, .tabs-striped.tabs-color-calm .tab-item.active, .tabs-striped.tabs-color-calm .tab-item.activated {
-  color: #f28282 !important;
-  border-top: 2px solid #f28282 !important; }
-
-.join-party-input {
-  width: 115% !important;
-  margin-left: -5% !important;
-  opacity: .80; }
 
 #party {
   height: 70px;
@@ -3119,8 +3112,38 @@ button#song-btn {
   right: 20px;
   color: #f28282; }
 
-.scroll {
-  min-height: 800px; }
+.login-stuff {
+  margin-top: 50px; }
+
+.button-shape {
+  width: 90%;
+  margin-left: 5%; }
+
+.form-field {
+  width: 96%;
+  margin-left: 2%;
+  border: 1.5px solid black;
+  border-radius: 9px;
+  margin-bottom: 2%; }
+
+.form-field-content {
+  opacity: .35;
+  border-radius: 9px; }
+
+.spotify-input {
+  width: 96%;
+  margin-left: 2% !important;
+  border-radius: 9px !important; }
+
+.join-party-input {
+  width: 100%;
+  border-radius: 9px !important;
+  opacity: .35; }
+
+.shuffle-btn {
+  width: 96% !important;
+  margin-left: 2% !important;
+  border-radius: 9px !important; }
 
 /**
  * Resets
@@ -10017,6 +10040,7 @@ a {
   background-color: #BDBDBD; }
 
 .card {
+  float: left;
   padding: 8px;
   margin: 8px; }
 

@@ -41,7 +41,7 @@ karaoke.controller('PlaylistsCtrl', ['$scope', '$http', '$state','$window', func
       headers: setHeader()
     })
     .then(function(response){
-      angular.element("#user-playlist").append("<div class='item card list-items'><img src='"+  songImages + "' style='height: 100px; width: 100px;' /><p><strong>"+response.config.data.artist+"</strong></p><p>"+response.config.data.title+"</p><i id="+response.data.song_id+" ng-click='destroySong()' class='icon ion-minus-circled ådelete-song-btn delete-song-btn'></i></div>");
+      angular.element("#user-playlist").append("<div class='item card list-items'><div id='song-list-headers'><p class='song-list-p'><strong>"+response.config.data.title+"</strong></p><p class='song-list-p'>"+response.config.data.artist+"</p></div><i id="+response.data.song_id+" ng-click='destroySong()' class='icon ion-minus-circled delete-song-btn'><img src="+songImages+" style='float:left; height: 100px; width: 100px'></div>");
       $scope.show = false
       $scope.spotify.searchedSong = ''
     })

@@ -167,11 +167,6 @@ a {
   background-color: white;
 }
 
-#leave-btn {
-  border: 1px solid black;
-  width: 120px;
-}
-
 #on-deck {
   max-width: 80%;
   margin: auto;
