@@ -11,7 +11,7 @@
     <button ng-click="shuffleSong()" class="button button-calm button-block icon ion-shuffle icon-right shuffle-btn">Shuffle</button>
     <div class="img-container">
       <p class="white-font" ng-hide="IsHidden">shuffling...</p>
-      <img ng-hide="IsHidden" id="shuffle-wheel" src="../img/loader.gif" height="50px">
+      <img ng-hide="IsHidden" id="shuffle-wheel" src="img/discoballtansmall.gif" height="50px">
     </div>
     <div id="party-list" class="list card" >
       <div class="item item-avatar next-song-info">
@@ -19,7 +19,7 @@
         <p>{{currentSinger.song_artist}}</p>
       </div>
       <div class="item item-image">
-        <img ng-src="{{currentSinger.playlists.songs.img}}">
+        <img src="http://images.rapgenius.com/5nwpswdxush14g3hd83ex8m79.1000x896x1.jpg" style="width: 250px; height: 250px; border-radius: 7px">
       </div>
       <div class="item">
         <h2 class="icon ion-music-note singer-name">   Singer: {{currentSinger.singer_name}}</h2>
