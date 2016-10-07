@@ -1,11 +1,11 @@
 <ion-view ng-controller="PlaylistsCtrl">
-  <ion-content class="background-image content has-header">
   <div ng-hide="show" class="bar bar-header bar-calm">
     <h1 class="title">Song List</h1>
   </div>
   <div ng-show="show" class="bar bar-header bar-calm">
     <h1 class="title">Results</h1>
   </div>
+  <ion-content class="background-image content has-header">
     <label class="item item-input">
       <i class="icon ion-search placeholder-icon"></i>
       <form ng-submit="spotify()">
